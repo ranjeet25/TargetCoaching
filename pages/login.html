@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS & Bootstrap links -->
 
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/login.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -30,6 +30,46 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Weclcome to login page</h1>
+    <div class="main_container">
+      <header class="header">
+        <h1 id="title" class="text-center">Login Page</h1>
+        <p id="description" class="text-center">
+          Welcome Back to TargetCoaching
+        </p>
+      </header>
+      <div class="form_box">
+        <form id="login-form form_container">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label id="usename-label" for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Enter your username"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label id="password-label" for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="button" class="btn btn-outline-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
