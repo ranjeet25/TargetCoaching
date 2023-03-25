@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS & Bootstrap links -->
+
+    <link rel="stylesheet" href="/css/staff.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+   <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Bootstrap JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS & Bootstrap links Ends -->
+    <title>TargetCoaching | Teacher</title>
+  </head>
+  <body>
+    <section class="main_container container-fluid">
+
+    <!--  **********###### MODALS ######********** -->
+      <!--  ****** EDIT Modal ***** -->
+      <div class="modal fade " id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: auto; height:auto;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Add Branch Admin</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body " >
+              <div class=" add_branch_admin create_branch_box">
+                  <form id=" form_container" action="http://localhost:8100/superAdmin/addAdmin" method="post">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_id"></label>
+                          Branch Id</label
+                        >
+                        <input
+                          type="text"
+                          name="branch_id"
+                          id="branch_id"
+                          placeholder="Enter Branch ID"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_name"></label>
+                          Admin Name</label
+                        >
+                        <input
+                          type="text"
+                          name="admin_name"
+                          id="admin_name"
+                          placeholder="Enter Admin Name"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_name"></label>
+                          Admin Email</label
+                        >
+                        <input
+                          type="text"
+                          name="admin_email"
+                          id="admin_email"
+                          placeholder="Enter Admin Email"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_name"></label>
+                          Admin Password</label
+                        >
+                        <input
+                          type="password"
+                          name="admin_pass"
+                          id="admin_pass"
+                          placeholder="Enter Admin Password"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                   
+                   
+                    <div class="col-md-12">
+                      <button
+                        type="submit"
+                        class="btn btn-outline-primary"
+                        id="admin_btn_submit"
+                      >
+                        Add Branch Admin
+                      </button>
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
+      <!--  **********###### MODALS  ENDS ######********** -->
+
+
+
+      <div class="row">
+        <div class="sidebar col-2">
+          <section class="logo row">
+            <h4>TargetCoaching</h4>
+          </section>
+          <section class="profile_box row">
+            <div class="profile_content">
+             
+              <h6>Staff Panel</h6>
+              <h4 id="name">Staff Name</h4>
+              <p>Role <span>Teacher</span></p>
+            </div>
+          </section>
+          <section class="button_box">
+          
+            <button
+              onclick="manageBranches()"
+              class="side_btn btn btn-outline-light active"
+            >
+             My Information
+            </button>
+
+            <button
+              onclick="viewBranches()"
+              class="side_btn btn btn-outline-light"
+            >
+             Home
+            </button>
+            <button class="side_btn btn btn-outline-danger">Logout</button>
+           
+          </section>
+        </div>
+        <div class="main_dashboard col">
+
+          
+          <!-- <header class="navigation_bar row">dfaf</header> -->
+          <section class="content_section row">
+            <div class="content_1 container">
+              <!-- ********* Contents ********* -->
+
+              <!-- ********* 0001111 ********* -->
+            
+              <div
+                id="content_container-1"
+                class="content_container rounded rounded-5"
+              >
+
+              <!-- Content SECTION -->
+            <div id="student_details">
+                 <p id="student_id" style="background: #146C94; color: #fff;font-weight: 600;">Basic Details</p>
+                <h5  id="student_id">Staff ID <span class="span_text" id="id" >123466789</span></h5>
+                <h5  id="student_id">Username <span class="span_text"id="username" >staff id</span></h5>
+                <h5  id="student_id">Joining Date <span class="span_text" id="date" >00/00/0000</span></h5>
+            </div>
+             <div id="student_details" >
+                <p id="student_id" style="background: #19A7CE; color: #fff;font-weight: 600;">Course alloted for Teaching</p>
+                <h5  id="student_id">Course Name<span class="span_text" id="c_name" >PCM</span></h5> 
+                <h5  id="student_id">Course Subject<span class="span_text" id="c_subject" >B1</span></h5> 
+            </div>
+             <div id="student_details">
+                <p id="student_id" style="background: #000000; color: #fff;font-weight: 600;">Current BATCH details</p>
+                <h5  id="student_id">Batch Name<span class="span_text" id="batch_name" >20000</span></h5>
+                <h5  id="student_id">Batch Time<span class="span_text" id="batch_time" >20000</span></h5>
+                <h5  id="student_id">Batch Course <span class="span_text" id="batch_course" >2000</span></h5> 
+            </div>
+            
+         
+                  <!-- Content SECTION -->
+              </div>
+
+              <!-- ********* 00022222 ********* -->
+    
+              <!-- ********* 0003333 ********* -->
+             
+            </div>
+          
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <script>
+    
+    var brachData = new Object()
+    const url ="http://localhost:8100/login/staffData";
+    fetch(url)
+    .then(res => res.json())
+    .then(data =>{  
+         console.log(data);
+      getData(data);
+     
+    })
+
+    function getData(data){
+      var id = document.getElementById("id");
+      var username = document.getElementById("username");
+      var date = document.getElementById("date");
+      var c_name = document.getElementById("c_name");
+      var c_subject = document.getElementById("c_subject");
+      var batch_name = document.getElementById("batch_name");
+      var batch_time = document.getElementById("batch_time");
+      var batch_course = document.getElementById("batch_course");
+      var name = document.getElementById("name");
+      
+      id.innerHTML = data[2]._id;
+      username.innerHTML =  data[2].staff_username;
+      date.innerHTML=  data[2].date;
+      c_name.innerHTML=  data[1].course_name;
+      c_subject.innerHTML=  data[1].course_subject;
+      batch_name.innerHTML=  data[0].batch_name;
+      batch_time.innerHTML=  data[0].batch_time;
+      batch_course.innerHTML=  data[0].batch_course;
+      name.innerHTML = data[2].staff_name;
+    
+  } 
+
+
+   
+    </script>
+  </body>
+</html>

@@ -7,7 +7,7 @@
 
     <!-- CSS & Bootstrap links -->
 
-    <link rel="stylesheet" href="/css/superadmin.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -27,10 +27,12 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
+      
     ></script>
+     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <!-- CSS & Bootstrap links Ends -->
-    <title>Document</title>
+    <title>Manage Courses</title>
   </head>
   <body>
     <section class="main_container container-fluid">
@@ -80,7 +82,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
-                          Admin username</label
+                          Admin Email</label
                         >
                         <input
                           type="text"
@@ -130,7 +132,7 @@
       </div>
       
       <!--  **********###### MODALS  ENDS ######********** -->
-
+ 
 
 
       <div class="row">
@@ -142,48 +144,106 @@
             <div class="profile_content">
              
               <h6>Admin Panel</h6>
-              <h4> Sonali Patil</h4>
-              <p>Role <span>SuperAdmin</span></p>
+            <h4 id="name">Admin Name</h4>
+              <p>Role <span>Branch Admin</span></p>
             </div>
           </section>
-          <section class="button_box">
+          
+
+          <section class="button_box ">
+
+              <p style="color: #fff; font-weight: 600;"><span id="b_name">Branch Name</span></p>
+             <p style="color: #fff; font-weight: 600;"><span id="b_location">Branch location</span></p>
+
+              <!-- *********** 01 MANAGE STAFFS ***********-->
             <button
-              onclick="createBranch()"
-              class="side_btn btn btn-outline-light"
+             style="background-color: rgb(245, 127, 168);color: rgb(32, 32, 32);"
+              class="side_btn btn btn-outline-light "
+             data-bs-toggle="collapse" data-bs-target="#manage_staff"
             >
-              Create Branch
+              Manage Courses
             </button>
+         <!-- *********** SUB MANAGE STAFFS ***********-->
+          <div id="manage_staff" class="collapse"> 
+            <!-- SUB BUTTON 01 -->
             <button
-              onclick="manageBranches()"
-              class="side_btn btn btn-outline-light"
-            >
-              Remove Branch
+               
+                onclick="addStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                Add Course
             </button>
-
-    
-
-
-
+            <!-- SUB BUTTON 02 -->
             <button
-              onclick="viewBranches()"
-              class="side_btn btn btn-outline-light"
-            >
-              View Branches
+                onclick="removeStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                Remove Course
             </button>
-            <button class="side_btn btn btn-outline-danger">Logout</button>
+            <!-- SUB BUTTON 03 -->
+            <button
+                onclick="viewStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                View Courses
+            </button>
+          </div>
+
+           <!-- *********** 02 MANAGE STUDENTS ***********-->
            
-          </section>
-        </div>
-        <div class="main_dashboard col">
+            <button onclick="manage_staff()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Students"
+            >
+             
+              Manage Staffs
+            </button>
+          
+
+
+
+             <!-- *********** 03 MANAGE COURSES ***********-->
+
+            <button onclick="manage_student()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Courses"
+            >
+              Manage Students
+            </button>
 
           
-          <!-- <header class="navigation_bar row">dfaf</header> -->
-          <section class="content_section row">
-            <div class="content_1 container">
+
+             <!-- *********** 04 MANAGE BATCHES ***********-->
+            <button onclick="manage_batches()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Batches"
+            >
+             Manage Batches
+            </button>
+
+            
+
+             <!-- *********** LOGOUT ***********-->
+            <button style="margin-top: 20px;" class="side_btn btn btn-outline-danger">Logout</button>
+          </section>
+        </div>
+
+
+
+        <div class="main_dashboard col">
+
+
+          <!-- *********** 111111111  MAIN  SWITCHING CONTENT  CONTAINERS *********** -->
+
+          <section class="staff_section content_section row">
+            <div style="background-color: rgb(245, 127, 168);" class="content_1 container">
               <!-- ********* Contents ********* -->
 
               <!-- ********* 0001111 ********* -->
-              <h4 id="dashboard_heading-1">Create a new Branch</h4>
+              <h4 id="dashboard_heading-1">Add Courses</h4>
               <div
                 id="content_container-1"
                 class="content_container rounded rounded-5"
@@ -191,15 +251,15 @@
 
               <!-- Content SECTION -->
                 <div class="create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin" method="POST">
+                  <form id=" form_container" action="http://localhost:8100/admin/manage_courses" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
-                          >New Branch Name</label
+                          >New Course Name</label
                         >
                         <input
                           type="text"
-                          name="branch_name"
+                          name="course_name"
                           id="branch_name"
                           placeholder="Enter Branch Name"
                           class="btn_outline form-control"
@@ -210,31 +270,41 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="location-label" for="location"
-                          >Location</label
+                          >Course subject <span style="font-size: 0.8rem; color: crimson;">Enter multiple enteries seperated with comma</span></label
                         >
                         <input
                           type="text"
-                          name="location"
+                          name="course_subject"
                           id="location"
-                          placeholder="Enter Location"
+                          placeholder="Eg Maths,Science"
                           class="form-control"
                           required
                         />
                       </div>
                     </div>
-                    <div class="col-md-12">
+                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="date-label" for="date">Select Date</label>
-                        <input type="date" name="date" class="form-control" id="date" />
+                        <label id="location-label" for="location"
+                          >Course Incharge username </label
+                        >
+                        <input
+                          type="text"
+                          name="course_incharge"
+                          id="location"
+                          placeholder="Incharge username"
+                          class="form-control"
+                          required
+                        />
                       </div>
                     </div>
+             
                     <div class="col-md-12">
                       <button
                         type="submit"
                         class="btn btn-outline-primary"
                         id="btn_submit"
                       >
-                        Create Branch
+                        Create course
                       </button>
                     </div>
                   </form>
@@ -244,7 +314,7 @@
 
               <!-- ********* 00022222 ********* -->
               <h4 style="display: none" id="dashboard_heading-3">
-                Remove a Branch
+                Delete a course
               </h4>
               <div
                 id="content_container-3"
@@ -254,15 +324,15 @@
 
                 <!-- Content SECTION remove branches -->
                 <div class=" remove_branch create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/removeBranch" method="post">
+                  <form id=" form_container" action="http://localhost:8100/admin/deleteCourse" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
-                          Branch Name</label
+                          course Name</label
                         >
                         <input
                           type="text"
-                          name="branch_name"
+                          name="course_name"
                           id="remove_branch_name"
                           placeholder="Enter Branch Name to Remove"
                           class="btn_outline form-control"
@@ -272,14 +342,14 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch_id-label" for="branch_id"
-                          >Branch ID</label
+                        <label style="font-size: medium;" id="branch_id-label" for="branch_id"
+                          >course ID <span style="color: crimson; font-size: 0.8rem;"> mandatory*</span></label
                         >
                         <input
                           type="text"
-                          name="branch_id"
+                          name="course_id"
                           id="branch_id"
-                          placeholder="Enter Branch ID"
+                          placeholder="Enter course ID"
                           class="form-control"
                           required
                         />
@@ -292,7 +362,7 @@
                         class="btn btn-outline-primary"
                         id="remove_btn_submit"
                       >
-                        Remove Branch
+                       Delete Course
                       </button>
                     </div>
                   </form>
@@ -318,10 +388,10 @@
                          <thead >
                            <tr  >
                              <th scope="col">Srno</th>
-                             <th scope="col">Branch ID</th>
-                             <th scope="col">Branch Name</th>
-                             <th scope="col">Branch Location</th>
-                             <th scope="col">Opening Date</th>
+                             <th scope="col">course ID</th>
+                             <th scope="col">course Name</th>
+                             <th scope="col">course subject</th>
+                             <th scope="col">course Incharge</th>
                              <th scope="col">Edit</th>
                             
                            </tr>
@@ -345,21 +415,34 @@
             </div>
           
           </section>
+
+           <!-- *********** 111111111  MAIN  SWITCHING CONTENT  CONTAINERS *********** -->
+
+
+
         </div>
       </div>
     </section>
 
     <script>
+
+   fetch("http://localhost:8100/login/adminData")
+   .then(res =>res.json())
+   .then(data =>{
+    document.getElementById("name").innerHTML = data.branch_Admin_name;
+    document.getElementById("b_name").innerHTML = data.branch_name;
+    document.getElementById("b_location").innerHTML = data.location;
+   })
+
     
     var brachData = new Object()
-    const url ="http://localhost:8100/superAdmin/branchDetails";
+    const url ="http://localhost:8100/admin/courseDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{
       brachData = data;
       getData();
     })
-
 
     var branch_id;
 
@@ -368,14 +451,15 @@
       let out = "";
       for(let i=0 ; i<brachData.length ; i++){
 
-      date = brachData[0].date.slice(0,10);
+      // date = brachData[0].date.slice(0,10);
       out += `
          <tr>
             <td>${i+1}</td>
             <td id="branch_id"><span>${brachData[i]._id}<span></td>
-            <td>${brachData[i].branch_name}</td>
-            <td>${brachData[i].location}</td>
-            <td>${date}</td>
+            <td>${brachData[i].course_name}</td>
+            <td>${brachData[i].course_subject}</td>
+            <td>${brachData[i].course_incharge}</td>
+            
             <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
             
          </tr>
@@ -395,7 +479,7 @@
       var dh3 = document.getElementById("dashboard_heading-3");
       var cc3 = document.getElementById("content_container-3");
 
-      function createBranch() {
+      function addStaff() {
         if ((dh1.style.display = "none") && (cc1.style.display = "none")) {
           dh1.style.display = "inline";
           cc1.style.display = "flex";
@@ -407,8 +491,7 @@
           cc3.style.display = "none";
         }
       }
-      
-      function viewBranches() {
+      function viewStaff() {
         if ((dh2.style.display = "none") && (cc2.style.display = "none")) {
           dh2.style.display = "inline";
           cc2.style.display = "flex";
@@ -420,7 +503,7 @@
           cc3.style.display = "none";
         }
       }
-      function manageBranches() {
+      function removeStaff() {
         if ((dh3.style.display = "none") && (cc3.style.display = "none")) {
           dh3.style.display = "inline";
           cc3.style.display = "flex";
@@ -431,6 +514,17 @@
           dh1.style.display = "none";
           cc1.style.display = "none";
         }
+      }
+
+
+       function manage_staff(){
+       window.location.href = "/admin";
+      }
+       function manage_student(){
+        window.location.href = "/admin/manage_student";
+      }
+       function manage_batches(){
+         window.location.href = "/admin/manage_batches";
       }
     </script>
   </body>

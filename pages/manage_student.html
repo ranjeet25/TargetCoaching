@@ -7,7 +7,7 @@
 
     <!-- CSS & Bootstrap links -->
 
-    <link rel="stylesheet" href="/css/superadmin.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -27,10 +27,12 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
+      
     ></script>
+     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <!-- CSS & Bootstrap links Ends -->
-    <title>Document</title>
+    <title>Manage Students</title>
   </head>
   <body>
     <section class="main_container container-fluid">
@@ -80,7 +82,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
-                          Admin username</label
+                          Admin Email</label
                         >
                         <input
                           type="text"
@@ -130,7 +132,7 @@
       </div>
       
       <!--  **********###### MODALS  ENDS ######********** -->
-
+ 
 
 
       <div class="row">
@@ -142,99 +144,228 @@
             <div class="profile_content">
              
               <h6>Admin Panel</h6>
-              <h4> Sonali Patil</h4>
-              <p>Role <span>SuperAdmin</span></p>
+               <h4 id="name">Admin Name</h4>
+              <p>Role <span>Branch Admin</span></p>
             </div>
           </section>
-          <section class="button_box">
+          
+
+          <section class="button_box ">
+
+              <p style="color: #fff; font-weight: 600;"><span id="b_name">Branch Name</span></p>
+             <p style="color: #fff; font-weight: 600;"><span id="b_location">Branch location</span></p>
+
+              <!-- *********** 01 MANAGE STAFFS ***********-->
             <button
-              onclick="createBranch()"
-              class="side_btn btn btn-outline-light"
+             style="background-color: rgb(135, 245, 127); color: rgb(34, 34, 34);"
+              class="side_btn btn btn-outline-light "
+             data-bs-toggle="collapse" data-bs-target="#manage_staff"
             >
-              Create Branch
+              Manage Students
             </button>
+         <!-- *********** SUB MANAGE STAFFS ***********-->
+          <div id="manage_staff" class="collapse"> 
+            <!-- SUB BUTTON 01 -->
             <button
-              onclick="manageBranches()"
-              class="side_btn btn btn-outline-light"
-            >
-              Remove Branch
+               
+                onclick="addStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                Add Student
             </button>
-
-    
-
-
-
+            <!-- SUB BUTTON 02 -->
             <button
-              onclick="viewBranches()"
-              class="side_btn btn btn-outline-light"
-            >
-              View Branches
+                onclick="removeStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                Remove Student
             </button>
-            <button class="side_btn btn btn-outline-danger">Logout</button>
+            <!-- SUB BUTTON 03 -->
+            <button
+                onclick="viewStaff()"
+               class="staff add_staff btn btn-outline-light "
+                >
+                View Students
+            </button>
+          </div>
+
+           <!-- *********** 02 MANAGE STUDENTS ***********-->
            
-          </section>
-        </div>
-        <div class="main_dashboard col">
+            <button onclick="manage_staff()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Students"
+            >
+             
+              Manage Staff
+            </button>
+          
+
+
+
+             <!-- *********** 03 MANAGE COURSES ***********-->
+
+            <button onclick="manage_courses()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Courses"
+            >
+              Manage Courses
+            </button>
 
           
-          <!-- <header class="navigation_bar row">dfaf</header> -->
-          <section class="content_section row">
-            <div class="content_1 container">
+
+             <!-- *********** 04 MANAGE BATCHES ***********-->
+            <button onclick="manage_batches()" style="margin-top: 20px;"
+              
+              class="side_btn btn btn-outline-light"
+               data-bs-toggle="collapse" data-bs-target="#manage_Batches"
+            >
+             Manage Batches
+            </button>
+
+            
+
+             <!-- *********** LOGOUT ***********-->
+            <button style="margin-top: 20px;" class="side_btn btn btn-outline-danger">Logout</button>
+          </section>
+        </div>
+
+
+
+        <div class="main_dashboard col">
+
+
+          <!-- *********** 111111111  MAIN  SWITCHING CONTENT  CONTAINERS *********** -->
+
+          <section class="staff_section content_section row">
+            <div style="background-color: rgb(135, 245, 127);" class="content_1 container">
               <!-- ********* Contents ********* -->
 
               <!-- ********* 0001111 ********* -->
-              <h4 id="dashboard_heading-1">Create a new Branch</h4>
+              <h4 id="dashboard_heading-1">Add Students</h4>
               <div
                 id="content_container-1"
                 class="content_container rounded rounded-5"
               >
 
               <!-- Content SECTION -->
-                <div class="create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin" method="POST">
-                    <div class="col-md-12">
+                <div class="create_branch_box" style="transform: scale(0.8);">
+                  <form id=" form_container" action="http://localhost:8100/admin/manage_student" method="POST" >
+                    <div class="col-md-12" >
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
-                          >New Branch Name</label
+                          >New Student Name</label
                         >
                         <input
                           type="text"
-                          name="branch_name"
+                          name="student_name"
                           id="branch_name"
-                          placeholder="Enter Branch Name"
+                          placeholder="Enter student Name"
                           class="btn_outline form-control"
                           required
                         />
                       </div>
                     </div>
+
                     <div class="col-md-12">
-                      <div class="form-group">
+                      <div class="form-group" >
                         <label id="location-label" for="location"
-                          >Location</label
+                          >Student username</label
                         >
                         <input
                           type="text"
-                          name="location"
+                          name="student_username"
                           id="location"
-                          placeholder="Enter Location"
+                          placeholder="set username"
                           class="form-control"
                           required
                         />
                       </div>
                     </div>
+
+                     <div class="col-md-12">
+                      <div class="form-group" >
+                        <label id="location-label" for="location"
+                          >Student password</label
+                        >
+                        <input
+                          type="password"
+                          name="student_password"
+                          id="location"
+                          placeholder="set password"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                     <div class="col-md-12">
+                      <div class="form-group" >
+                        <label id="location-label" for="location"
+                          >Course selected</label
+                        >
+                        <input
+                          type="text"
+                          name="course"
+                          id="location"
+                          placeholder="Enter Course enrolled "
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="date-label" for="date">Select Date</label>
+                        <label id="date-label" for="date">Admission Date</label>
                         <input type="date" name="date" class="form-control" id="date" />
                       </div>
                     </div>
+
+
+                    <div style="display: flex;">
+                     <div class="col-md-6" style="margin-right: 8px;">
+                      <div class="form-group" >
+                        <label id="location-label" for="location"
+                          >Fees paid by student</label
+                        >
+                        <input
+                          type="text"
+                          name="fees_paid"
+                          id="location"
+                          placeholder="Enter Fees paid "
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                      <div class="col-md-6">
+                      <div class="form-group" >
+                        <label id="location-label" for="location"
+                          >Fees pending by student</label
+                        >
+                        <input
+                          type="text"
+                          name="fees_pending"
+                          id="location"
+                          placeholder="Enter Fees pending "
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    </div>
+
+            
                     <div class="col-md-12">
                       <button
                         type="submit"
                         class="btn btn-outline-primary"
                         id="btn_submit"
                       >
-                        Create Branch
+                        Add Student
                       </button>
                     </div>
                   </form>
@@ -254,17 +385,17 @@
 
                 <!-- Content SECTION remove branches -->
                 <div class=" remove_branch create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/removeBranch" method="post">
+                  <form id=" form_container" action="http://localhost:8100/admin/removeStudent" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
-                          Branch Name</label
+                          Student username</label
                         >
                         <input
                           type="text"
-                          name="branch_name"
+                          name="student_username"
                           id="remove_branch_name"
-                          placeholder="Enter Branch Name to Remove"
+                          placeholder="Enter username to Remove"
                           class="btn_outline form-control"
                           required
                         />
@@ -272,14 +403,14 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch_id-label" for="branch_id"
-                          >Branch ID</label
+                        <label style="font-size: medium;" id="branch_id-label" for="branch_id"
+                          >Student ID</label
                         >
                         <input
                           type="text"
-                          name="branch_id"
+                          name="student_id"
                           id="branch_id"
-                          placeholder="Enter Branch ID"
+                          placeholder="Enter student ID"
                           class="form-control"
                           required
                         />
@@ -292,7 +423,7 @@
                         class="btn btn-outline-primary"
                         id="remove_btn_submit"
                       >
-                        Remove Branch
+                        Remove Student
                       </button>
                     </div>
                   </form>
@@ -318,10 +449,12 @@
                          <thead >
                            <tr  >
                              <th scope="col">Srno</th>
-                             <th scope="col">Branch ID</th>
-                             <th scope="col">Branch Name</th>
-                             <th scope="col">Branch Location</th>
-                             <th scope="col">Opening Date</th>
+                             <th scope="col">student ID</th>
+                             <th scope="col"> Name</th>
+                             <th scope="col">Username</th>
+                             <th scope="col">course</th>
+                             <th scope="col">fees pending</th>
+                             <th scope="col">Admission date</th>
                              <th scope="col">Edit</th>
                             
                            </tr>
@@ -345,21 +478,35 @@
             </div>
           
           </section>
+
+           <!-- *********** 111111111  MAIN  SWITCHING CONTENT  CONTAINERS *********** -->
+
+
+
         </div>
       </div>
     </section>
 
     <script>
+
+     fetch("http://localhost:8100/login/adminData")
+   .then(res =>res.json())
+   .then(data =>{
+    document.getElementById("name").innerHTML = data.branch_Admin_name;
+    document.getElementById("b_name").innerHTML = data.branch_name;
+    document.getElementById("b_location").innerHTML = data.location;
+   })
+
     
     var brachData = new Object()
-    const url ="http://localhost:8100/superAdmin/branchDetails";
+    const url ="http://localhost:8100/admin/studentDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{
+      data.reverse()
       brachData = data;
       getData();
     })
-
 
     var branch_id;
 
@@ -373,8 +520,10 @@
          <tr>
             <td>${i+1}</td>
             <td id="branch_id"><span>${brachData[i]._id}<span></td>
-            <td>${brachData[i].branch_name}</td>
-            <td>${brachData[i].location}</td>
+            <td>${brachData[i].student_name}</td>
+            <td>${brachData[i].student_username}</td>
+            <td>${brachData[i].course}</td>
+            <td>${brachData[i].fees_pending}</td>
             <td>${date}</td>
             <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
             
@@ -395,7 +544,7 @@
       var dh3 = document.getElementById("dashboard_heading-3");
       var cc3 = document.getElementById("content_container-3");
 
-      function createBranch() {
+      function addStaff() {
         if ((dh1.style.display = "none") && (cc1.style.display = "none")) {
           dh1.style.display = "inline";
           cc1.style.display = "flex";
@@ -407,8 +556,7 @@
           cc3.style.display = "none";
         }
       }
-      
-      function viewBranches() {
+      function viewStaff() {
         if ((dh2.style.display = "none") && (cc2.style.display = "none")) {
           dh2.style.display = "inline";
           cc2.style.display = "flex";
@@ -420,7 +568,7 @@
           cc3.style.display = "none";
         }
       }
-      function manageBranches() {
+      function removeStaff() {
         if ((dh3.style.display = "none") && (cc3.style.display = "none")) {
           dh3.style.display = "inline";
           cc3.style.display = "flex";
@@ -431,6 +579,17 @@
           dh1.style.display = "none";
           cc1.style.display = "none";
         }
+      }
+
+
+       function manage_staff(){
+        window.location.href = "/admin";
+      }
+       function manage_courses(){
+         window.location.href = "/admin/manage_courses";
+      }
+       function manage_batches(){
+        window.location.href = "/admin/manage_batches";
       }
     </script>
   </body>

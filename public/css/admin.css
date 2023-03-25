@@ -20,6 +20,7 @@
   background-color: rgba(55, 55, 55, 0.896);
   height: 100vh;
   max-width: 25vw;
+  overflow-y: scroll;
 }
 
 .logo {
@@ -61,14 +62,14 @@
 }
 
 .profile_content p span {
-  background-color: #9721ff;
+  background-color: #1f1f1f;
   padding: 1px 8px;
   border-radius: 33px;
 }
 
 .button_box {
   margin-top: 10px;
-  height: 50vh;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -79,6 +80,7 @@
 
 .button_box .side_btn {
   width: 100%;
+  margin: 10px;
   background-color: rgb(125, 125, 125);
   color: #fff;
   outline: none;
@@ -87,10 +89,30 @@
   border-radius: 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  margin: 0 100px;
 }
 .side_btn:last-child {
   background-color: rgb(255, 255, 255);
   color: red;
+}
+
+#manage_staff,
+#manage_Students,
+#manage_Courses,
+#manage_Batches {
+  width: 100%;
+  background-color: #7c06e400;
+}
+
+#manage_staff button,
+#manage_Students button,
+#manage_Courses button,
+#manage_Batches button {
+  width: 100%;
+}
+
+.staff {
+  margin-top: 10px;
 }
 
 /************** Dashboard Navbar **************/
@@ -118,7 +140,7 @@
 
 .content_1 h4 {
   background-color: #fff;
-  color: #9721ff;
+  color: #1f1f1f;
   display: inline;
   padding: 2px 10px;
   border-radius: 33px;
@@ -129,7 +151,7 @@
   width: 200px;
   padding: 25px;
   height: 100%;
-  background-color: #9721ff;
+  background-color: #1f1f1f;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 
@@ -155,51 +177,51 @@
 /* ********* For ADD Branch BTN CSS ********* */
 
 #branch_name:focus {
-  border-color: #7d06e4;
-  box-shadow: 0 0 0 0.25rem rgba(144, 69, 255, 0.25);
+  border-color: #1f1f1f;
+  box-shadow: 0 0 0 0.25rem rgba(76, 76, 76, 0.25);
 }
 #location:focus {
-  border-color: #7d06e4;
-  box-shadow: 0 0 0 0.25rem rgba(144, 69, 255, 0.25);
+  border-color: #1f1f1f;
+  box-shadow: 0 0 0 0.25rem rgba(87, 87, 87, 0.25);
 }
 #date:focus {
-  border-color: #9721ff;
-  box-shadow: 0 0 0 0.25rem rgba(144, 69, 255, 0.25);
+  border-color: #1f1f1f;
+  box-shadow: 0 0 0 0.25rem rgba(66, 66, 66, 0.25);
 }
 
 #btn_submit {
-  border-color: #9721ff;
-  color: #9721ff;
+  border-color: #2f2f2f;
+  color: #272727;
 }
 #btn_submit:hover {
-  background-color: #9721ff;
+  background-color: #323232;
   color: #fff;
 }
 #btn_submit:focus {
-  border-color: #9721ff;
+  border-color: #848484;
   box-shadow: 0 0 0 0.25rem rgba(144, 69, 255, 0.25);
 }
 
 /* ********* For Remove Branch BTN CSS ********* */
 #remove_branch_name:focus {
-  border-color: #ff4b75;
+  border-color: #1f1f1f;
   box-shadow: 0 0 0 0.25rem rgba(245, 78, 78, 0.25);
 }
 #removeId:focus {
-  border-color: #ff4b75;
+  border-color: #1f1f1f;
   box-shadow: 0 0 0 0.25rem rgba(245, 78, 78, 0.25);
 }
 
 #remove_btn_submit {
-  border-color: #ff4b75;
-  color: #ff4b75;
+  border-color: #1f1f1f;
+  color: #1f1f1f;
 }
 #remove_btn_submit:hover {
-  background-color: #ff6161;
+  background-color: #1f1f1f;
   color: #fff;
 }
 #remove_btn_submit:focus {
-  border-color: #ff4b75;
+  border-color: #1f1f1f;
   box-shadow: 0 0 0 0.25rem rgba(255, 69, 69, 0.25);
 }
 
@@ -210,7 +232,7 @@
 header h1 {
   font-weight: 700;
   font-size: 2.5rem;
-  color: #8758ff;
+  color: #6c6c6c;
 }
 header p {
   font-size: 1rem;
@@ -354,7 +376,7 @@ textarea.form-control {
 }
 
 thead tr {
-  background-color: #7d06e4;
+  background-color: #1f1f1f;
   color: #fff;
   height: 60px;
 }
@@ -363,11 +385,11 @@ tbody tr {
 }
 
 #branch_id span {
-  background-color: #d9adff;
+  background-color: #c0c0c0;
   padding: 4px 20px;
   font-size: small;
   border-radius: 33px;
-  color: #7d06e4;
+  color: #1f1f1f;
   font-weight: 600;
 }
 
@@ -387,7 +409,7 @@ tbody tr {
 #edit-btn i {
   width: 25px;
   height: 25px;
-  color: #7d06e4;
+  color: #1f1f1f;
 }
 #delete-btn {
   background: #fff;

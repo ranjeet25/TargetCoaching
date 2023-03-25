@@ -29,6 +29,7 @@ mongoose
   })
   .catch((err) => {
     console.error("Database connection error");
+    console.log(err);
   });
 
 // *************** LOGIN ROUTE ***************
@@ -45,6 +46,21 @@ app.use("/register", userRegister);
 
 const superAdmin = require("./routes/SuperAdmin");
 app.use("/superAdmin", superAdmin);
+
+// *************** Admin ROUTE ***************
+
+const Admin = require("./routes/Admin");
+app.use("/admin", Admin);
+
+// *************** student ROUTE ***************
+
+const Student = require("./routes/Student");
+app.use("/student", Student);
+
+// *************** Staff ROUTE ***************
+
+const Staff = require("./routes/Staff");
+app.use("/staff", Staff);
 
 // ***************  APP LISTEN ***************
 

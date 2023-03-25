@@ -27,7 +27,7 @@
     ></script>
 
     <!-- CSS & Bootstrap links Ends -->
-    <title>Document</title>
+    <title>Login</title>
   </head>
   <body>
     <div class="main_container">
@@ -38,7 +38,11 @@
         </p>
       </header>
       <div class="form_box">
-        <form id="login-form form_container">
+        <form
+          id="login-form form_container"
+          action="http://localhost:8100/login"
+          method="post"
+        >
           <div class="col-md-12">
             <div class="form-group">
               <label id="usename-label" for="username">Username</label>
@@ -66,7 +70,19 @@
             </div>
           </div>
           <div class="col-md-12">
-            <button type="button" class="btn btn-outline-primary">Login</button>
+            <div class="form-group">
+              <label>Select Role</label>
+              <select id="dropdown" name="role" class="form-control" required>
+                <option disabled selected value>Select</option>
+                <option value="super_admin">Super Admin</option>
+                <option value="admin">Admin</option>
+                <option value="staff">Staff</option>
+                <option value="student">Student</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-outline-primary">Login</button>
           </div>
         </form>
       </div>
