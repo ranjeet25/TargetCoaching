@@ -24,6 +24,9 @@ router.post("/", (req, res) => {
 
   if (role == "super_admin") {
     UserModel.findOne({ username: username }).then((result) => {
+      if (result == null) {
+        res.send("wrong Login Info");
+      }
       if (result.password === password) {
         superAdminData = result;
         res.sendFile(path.join(__dirname, "../pages/superAdmin.html"));
@@ -33,6 +36,9 @@ router.post("/", (req, res) => {
     });
   } else if (role == "admin") {
     adminModel.findOne({ branch_Admin_username: username }).then((result) => {
+      if (result == null) {
+        res.send("wrong Login Info");
+      }
       if (result.branch_Admin_password === password) {
         adminData = result;
         // console.log(adminData);
@@ -42,17 +48,20 @@ router.post("/", (req, res) => {
       }
     });
   } else if (role == "staff") {
-    courseModel.findOne({ course_incharge: username }).then((result) => {
-      staffData.push(result);
+    batchModel.findOne({ batch_incharge: username }).then((result) => {
+      staffData[0] = result;
     });
 
-    batchModel.findOne({ batch_incharge: username }).then((result) => {
-      staffData.push(result);
+    courseModel.findOne({ course_incharge: username }).then((result) => {
+      staffData[1] = result;
     });
 
     staffModel.findOne({ staff_username: username }).then((result) => {
+      if (result == null) {
+        res.send("wrong Login Info");
+      }
       if (result.staff_password === password) {
-        staffData.push(result);
+        staffData[2] = result;
         res.sendFile(path.join(__dirname, "../pages/staff.html"));
       } else {
         res.send("wrong Login Info");
@@ -60,6 +69,9 @@ router.post("/", (req, res) => {
     });
   } else if (role == "student") {
     studentModel.findOne({ student_username: username }).then((result) => {
+      if (result == null) {
+        res.send("wrong Login Info");
+      }
       if (result.student_password === password) {
         studentData = result;
         res.sendFile(path.join(__dirname, "../pages/student.html"));

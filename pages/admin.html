@@ -228,7 +228,7 @@
             
 
              <!-- *********** LOGOUT ***********-->
-            <button style="margin-top: 20px;" class="side_btn btn btn-outline-danger">Logout</button>
+            <a href="/" style="margin-top: 20px;" class="side_btn btn btn-outline-danger">Logout</a>
           </section>
         </div>
 
@@ -398,7 +398,7 @@
                              <th scope="col">Staff Name</th>
                              <th scope="col">Username</th>
                              <th scope="col">Joining Date</th>
-                             <th scope="col">Edit</th>
+                             
                             
                            </tr>
                          </thead>
@@ -467,11 +467,13 @@
             <td>${brachData[i].staff_name}</td>
             <td>${brachData[i].staff_username}</td>
             <td>${date}</td>
-            <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
+           
             
          </tr>
       `;
     }
+
+    //  <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
 
     placeholder.innerHTML = out;
   } 
