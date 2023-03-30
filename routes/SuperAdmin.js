@@ -18,8 +18,8 @@ router.post("/", (req, res) => {
     branchData = result;
     res.status(200);
   });
-
-  res.send("Data Submited");
+  // res.send("Data submited");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/removeBranch", (req, res) => {
@@ -28,7 +28,8 @@ router.post("/removeBranch", (req, res) => {
     console.log(err);
   });
 
-  res.send("Branch Removed");
+  // res.send("Branch Removed");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/addAdmin", (req, res) => {
@@ -49,7 +50,7 @@ router.post("/addAdmin", (req, res) => {
     { new: true }
   ).catch((err) => console.log(err));
 
-  res.send("Data Updated");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.get("/branchDetails", (req, res) => {

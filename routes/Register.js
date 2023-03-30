@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     console.log(result);
   });
 
-  res.send("Data Submited");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 module.exports = router;

@@ -22,7 +22,8 @@ router.post("/manage_staff", (req, res) => {
     // console.log(result);
   });
 
-  res.send("Staff Added");
+  // res.send("Staff Added");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/removeStaff", (req, res) => {
@@ -31,7 +32,8 @@ router.post("/removeStaff", (req, res) => {
     console.log(err);
   });
 
-  res.send("Staff Removed");
+  // res.send("Staff Removed");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.get("/staffDetails", (req, res) => {
@@ -62,7 +64,8 @@ router.post("/manage_student/", (req, res) => {
     console.log(result);
   });
 
-  res.send("Student Added");
+  // res.send("Student Added");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/removeStudent", (req, res) => {
@@ -71,7 +74,8 @@ router.post("/removeStudent", (req, res) => {
     console.log(err);
   });
 
-  res.send("Student Removed");
+  // res.send("Student Removed");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.get("/studentDetails", (req, res) => {
@@ -97,7 +101,8 @@ router.post("/manage_courses/", (req, res) => {
     console.log(result);
   });
 
-  res.send("Course Added");
+  // res.send("Course Added");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/deleteCourse", (req, res) => {
@@ -106,7 +111,8 @@ router.post("/deleteCourse", (req, res) => {
     console.log(err);
   });
 
-  res.send("Course Removed");
+  // res.send("Course Removed");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.get("/courseDetails", (req, res) => {
@@ -134,7 +140,8 @@ router.post("/manage_batches/", (req, res) => {
     console.log(result);
   });
 
-  res.send("Batch Added");
+  // res.send("Batch Added");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.post("/deleteBatch", (req, res) => {
@@ -143,7 +150,8 @@ router.post("/deleteBatch", (req, res) => {
     console.log(err);
   });
 
-  res.send("Batch Deleted");
+  // res.send("Batch Deleted");
+  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 router.get("/batchDetails", (req, res) => {
