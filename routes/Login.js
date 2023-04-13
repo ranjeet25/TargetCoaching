@@ -25,26 +25,26 @@ router.post("/", (req, res) => {
   if (role == "super_admin") {
     UserModel.findOne({ username: username }).then((result) => {
       if (result == null) {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
       if (result.password === password) {
         superAdminData = result;
         res.sendFile(path.join(__dirname, "../pages/superAdmin.html"));
       } else {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
     });
   } else if (role == "admin") {
     adminModel.findOne({ branch_Admin_username: username }).then((result) => {
       if (result == null) {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
       if (result.branch_Admin_password === password) {
         adminData = result;
         // console.log(adminData);
         res.sendFile(path.join(__dirname, "../pages/admin.html"));
       } else {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
     });
   } else if (role == "staff") {
@@ -58,25 +58,24 @@ router.post("/", (req, res) => {
 
     staffModel.findOne({ staff_username: username }).then((result) => {
       if (result == null) {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
       if (result.staff_password === password) {
         staffData[2] = result;
         res.sendFile(path.join(__dirname, "../pages/staff.html"));
       } else {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
     });
   } else if (role == "student") {
     studentModel.findOne({ student_username: username }).then((result) => {
       if (result == null) {
-        res.send("wrong Login Info");
-      }
-      if (result.student_password === password) {
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
+      } else if (result.student_password === password) {
         studentData = result;
         res.sendFile(path.join(__dirname, "../pages/student.html"));
       } else {
-        res.send("wrong Login Info");
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
     });
   }

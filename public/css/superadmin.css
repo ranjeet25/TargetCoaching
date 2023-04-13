@@ -152,6 +152,10 @@
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+
+.create_branch_box > div {
+  margin: 0 8px;
+}
 /* ********* For ADD Branch BTN CSS ********* */
 
 #branch_name:focus {
@@ -406,4 +410,28 @@ tbody tr {
   width: 25px;
   height: 25px;
   color: #ff3030;
+}
+
+.dash_card {
+  width: 250px;
+  height: 150px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #e5e5f7 10px
+    ),
+    repeating-linear-gradient(#444cf755, #444cf7);
+  cursor: pointer;
+}
+
+.dash_card p {
+  font-weight: 600;
+  font-size: 1.3rem;
 }

@@ -16,6 +16,7 @@ router.post("/manage_staff", (req, res) => {
     staff_username: req.body.staff_username,
     staff_password: req.body.staff_password,
     date: req.body.date,
+    branch_id: req.body.branch_id,
     role: "staff",
   }).then((result) => {
     res.status(200);
@@ -33,13 +34,33 @@ router.post("/removeStaff", (req, res) => {
   });
 
   // res.send("Staff Removed");
-  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
+  res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
 router.get("/staffDetails", (req, res) => {
   TeacherModel.find().then((result) => {
     res.send(result);
   });
+});
+
+router.post("/update", (req, res) => {
+  const staff_id = req.body.staff_id;
+
+  // console.log(req.body.branch_name);
+
+  TeacherModel.findOneAndUpdate(
+    { _id: staff_id },
+    {
+      staff_name: req.body.staff_name,
+      staff_username: req.body.staff_username,
+      staff_password: req.body.staff_password,
+      date: req.body.date,
+    },
+
+    { new: true }
+  ).catch((err) => console.log(err));
+
+  res.sendFile(path.join(__dirname, "../pages/alert/update.html"));
 });
 
 // ************ STAFF ROUTES ENDS ************
@@ -58,6 +79,7 @@ router.post("/manage_student/", (req, res) => {
     fees_paid: req.body.fees_paid,
     fees_pending: req.body.fees_pending,
     date: req.body.date,
+    branch_id: req.body.branch_id,
     role: "student",
   }).then((result) => {
     res.status(200);
@@ -75,13 +97,31 @@ router.post("/removeStudent", (req, res) => {
   });
 
   // res.send("Student Removed");
-  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
+  res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
 router.get("/studentDetails", (req, res) => {
   StudentsInfo.find().then((result) => {
     res.send(result);
   });
+});
+
+router.post("/student_update", (req, res) => {
+  const student_id = req.body.student_id;
+
+  // console.log(req.body.student_id);
+
+  StudentsInfo.findOneAndUpdate(
+    { _id: student_id },
+    {
+      course: req.body.student_Course,
+      fees_pending: req.body.pending_fees,
+    },
+
+    { new: true }
+  ).catch((err) => console.log(err));
+
+  res.sendFile(path.join(__dirname, "../pages/alert/update.html"));
 });
 
 // ************ STUDENTS ROUTES ENDS ************
@@ -96,9 +136,12 @@ router.post("/manage_courses/", (req, res) => {
     course_name: req.body.course_name,
     course_subject: req.body.course_subject,
     course_incharge: req.body.course_incharge,
+    course_fees: req.body.course_fees,
+    course_time: req.body.course_time,
+    branch_id: req.body.branch_id,
   }).then((result) => {
     res.status(200);
-    console.log(result);
+    // console.log(result);
   });
 
   // res.send("Course Added");
@@ -112,13 +155,34 @@ router.post("/deleteCourse", (req, res) => {
   });
 
   // res.send("Course Removed");
-  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
+  res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
 router.get("/courseDetails", (req, res) => {
   CoursesInfo.find().then((result) => {
     res.send(result);
   });
+});
+
+router.post("/course_update", (req, res) => {
+  const course_id = req.body.course_id;
+
+  // console.log(req.body.course_id);
+
+  CoursesInfo.findOneAndUpdate(
+    { _id: course_id },
+    {
+      course_name: req.body.course_name,
+      course_subject: req.body.course_subject,
+      course_incharge: req.body.course_incharge,
+      course_fees: req.body.course_fees,
+      course_time: req.body.course_time,
+    },
+
+    { new: true }
+  ).catch((err) => console.log(err));
+
+  res.sendFile(path.join(__dirname, "../pages/alert/update.html"));
 });
 
 // ************ COURSE ROUTES ENDS ************
@@ -135,6 +199,7 @@ router.post("/manage_batches/", (req, res) => {
     batch_time: req.body.batch_time,
     batch_course: req.body.batch_course,
     batch_incharge: req.body.batch_incharge,
+    branch_id: req.body.branch_id,
   }).then((result) => {
     res.status(200);
     console.log(result);
@@ -160,6 +225,28 @@ router.get("/batchDetails", (req, res) => {
   });
 });
 
+router.post("/update_batch", (req, res) => {
+  const batch_id = req.body.batch_id;
+
+  // console.log(req.body.batch_id);
+
+  BatchesInfo.findOneAndUpdate(
+    { _id: batch_id },
+    {
+      batch_name: req.body.batch_name,
+      batch_time: req.body.batch_time,
+      batch_course: req.body.batch_course,
+      batch_incharge: req.body.batch_incharge,
+    },
+
+    { new: true }
+  ).catch((err) => console.log(err));
+
+  res.sendFile(path.join(__dirname, "../pages/alert/update.html"));
+});
+
 // ************ BATCHES ROUTES ENDS ************
+
+// ************ UPDATE ROUTES ENDS  ************
 
 module.exports = router;

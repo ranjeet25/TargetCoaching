@@ -131,7 +131,7 @@
   width: 200px;
   padding: 25px;
   height: 100%;
-  background-color: #fff7e9;
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
 
@@ -139,15 +139,18 @@
   margin-top: 10px;
   background-color: #ffffff;
   padding: 10px;
-  height: 90vh;
+  height: 95vh;
 }
 
 #student_details {
+  width: 100%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 15px 5px;
   display: grid;
   grid-template-columns: 2 200px;
   grid-template-rows: auto;
+  border-radius: 5px;
+  margin-top: 2px;
 }
 
 .content_container #student_id {

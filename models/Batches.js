@@ -5,6 +5,7 @@ const BatcheSchema = new mongoose.Schema({
   batch_time: String,
   batch_course: String,
   batch_incharge: String,
+  branch_id: String,
 });
 
 BatchesModel = mongoose.model("BatchesInfo", BatcheSchema);

@@ -43,22 +43,22 @@
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: auto; height:auto;">
             <div class="modal-header">
-              <h5 class="modal-title" id="editModal">Add Branch Admin</h5>
+              <h5 class="modal-title" id="editModal">Update Batch information</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body " >
               <div class=" add_branch_admin create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/addAdmin" method="post">
+                 <form id=" form_container" action="http://localhost:8100/admin/update_batch" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_id"></label>
-                          Branch Id</label
-                        >
+                        <label id="branch-label" for="branch_name"
+                          > Batch ID</label
+                        > 
                         <input
                           type="text"
-                          name="branch_id"
-                          id="branch_id"
-                          placeholder="Enter Branch ID"
+                          name="batch_id"
+                          id="branch_name"
+                          placeholder="Enter Batch Id to update"
                           class="btn_outline form-control"
                           required
                         />
@@ -66,14 +66,14 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Name</label
-                        >
+                        <label id="branch-label" for="branch_name"
+                          >Update Batch Name</label
+                        > 
                         <input
                           type="text"
-                          name="admin_name"
-                          id="admin_name"
-                          placeholder="Enter Admin Name"
+                          name="batch_name"
+                          id="branch_name"
+                          placeholder="Enter Batch Name"
                           class="btn_outline form-control"
                           required
                         />
@@ -81,43 +81,57 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Email</label
+                        <label id="location-label" for="location"
+                          >Update Batch Time</label
                         >
+                        <input
+                          type="time"
+                          name="batch_time"
+                          id="location"
+                          placeholder="Enter Location"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                         <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_name"
+                          >Update Batch Course </label
+                        > 
                         <input
                           type="text"
-                          name="admin_email"
-                          id="admin_email"
-                          placeholder="Enter Admin Email"
+                          name="batch_course"
+                          id="branch_name"
+                          placeholder="Enter Batch course"
                           class="btn_outline form-control"
                           required
                         />
                       </div>
                     </div>
-                    <div class="col-md-12">
+                         <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Password</label
-                        >
+                        <label id="branch-label" for="branch_name"
+                          >Update Batch incharge</label
+                        > 
                         <input
-                          type="password"
-                          name="admin_pass"
-                          id="admin_pass"
-                          placeholder="Enter Admin Password"
+                          type="text"
+                          name="batch_incharge"
+                          id="branch_name"
+                          placeholder="Enter Batch Incharge"
                           class="btn_outline form-control"
                           required
                         />
                       </div>
                     </div>
-                   
-                   
+
                     <div class="col-md-12">
                       <button
                         type="submit"
                         class="btn btn-outline-primary"
-                        id="admin_btn_submit"
+                        id="btn_submit"
                       >
-                        Add Branch Admin
+                        Update Batch
                       </button>
                     </div>
                   </form>
@@ -312,6 +326,20 @@
                         />
                       </div>
                     </div>
+                    <!-- Hidden Input to collect Branch ID -->
+
+                     <div style="display: none;" class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="branch_id"
+                          id="branch_id"
+                          value="AdminNotLoggedIn";
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                     <!-- Hidden Input to collect Branch ID -->
 
                     <div class="col-md-12">
                       <button
@@ -329,7 +357,7 @@
 
               <!-- ********* 00022222 ********* -->
               <h4 style="display: none" id="dashboard_heading-3">
-                Remove a Branch
+                Delete Batch
               </h4>
               <div
                 id="content_container-3"
@@ -388,7 +416,7 @@
 
               <!-- ********* 0003333 ********* -->
               <h4 style="display: none" id="dashboard_heading-2">
-                View Branches
+                View Batches
               </h4>
               <div
                 id="content_container-2"
@@ -407,6 +435,7 @@
                              <th scope="col">Batch Incharge</th>
                              <th scope="col">Batch Course</th>
                              <th scope="col">Batch Time</th>
+                             <th scope="col">Edit</th>
                             
                             
                            </tr>
@@ -447,6 +476,7 @@
     document.getElementById("name").innerHTML = data.branch_Admin_name;
     document.getElementById("b_name").innerHTML = data.branch_name;
     document.getElementById("b_location").innerHTML = data.location;
+    document.getElementById("branch_id").value = data._id;
    })
 
      
@@ -475,7 +505,7 @@
             <td>${brachData[i].batch_incharge}</td> 
             <td>${brachData[i].batch_course}</td>
             <td>${brachData[i].batch_time}</td>
-           
+           <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
            
             
          </tr>

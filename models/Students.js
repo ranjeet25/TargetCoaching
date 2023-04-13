@@ -9,6 +9,7 @@ const StudentSchema = new mongoose.Schema({
   fees_pending: String,
   date: Date,
   role: String,
+  branch_id: String,
 });
 
 StudentsModel = mongoose.model("StudentsInfo", StudentSchema);

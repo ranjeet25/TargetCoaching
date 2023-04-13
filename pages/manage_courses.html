@@ -43,22 +43,22 @@
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: auto; height:auto;">
             <div class="modal-header">
-              <h5 class="modal-title" id="editModal">Add Branch Admin</h5>
+              <h5 class="modal-title" id="editModal">Update Course Information</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body " >
-              <div class=" add_branch_admin create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/addAdmin" method="post">
+              <div style="transform: scale(0.9);" class=" add_branch_admin create_branch_box">
+                     <form id=" form_container" action="http://localhost:8100/admin/course_update" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_id"></label>
-                          Branch Id</label
+                        <label id="branch-label" for="branch_name"
+                          > Course ID</label
                         >
                         <input
                           type="text"
-                          name="branch_id"
-                          id="branch_id"
-                          placeholder="Enter Branch ID"
+                          name="course_id"
+                          id="branch_name"
+                          placeholder="Enter Course ID to update"
                           class="btn_outline form-control"
                           required
                         />
@@ -66,14 +66,14 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Name</label
+                        <label id="branch-label" for="branch_name"
+                          > Update Course Name</label
                         >
                         <input
                           type="text"
-                          name="admin_name"
-                          id="admin_name"
-                          placeholder="Enter Admin Name"
+                          name="course_name"
+                          id="branch_name"
+                          placeholder="Enter Course ID to update"
                           class="btn_outline form-control"
                           required
                         />
@@ -81,43 +81,72 @@
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Email</label
+                        <label id="location-label" for="location"
+                          >Course subject <span style="font-size: 0.8rem; color: crimson;">Enter multiple enteries seperated with comma</span></label
                         >
                         <input
                           type="text"
-                          name="admin_email"
-                          id="admin_email"
-                          placeholder="Enter Admin Email"
-                          class="btn_outline form-control"
+                          name="course_subject"
+                          id="location"
+                          placeholder="Eg Maths,Science"
+                          class="form-control"
                           required
                         />
                       </div>
                     </div>
-                    <div class="col-md-12">
+                     <div class="col-md-12">
                       <div class="form-group">
-                        <label id="branch-label" for="branch_name"></label>
-                          Admin Password</label
+                        <label id="location-label" for="location"
+                          >Course Total fees </label
                         >
                         <input
-                          type="password"
-                          name="admin_pass"
-                          id="admin_pass"
-                          placeholder="Enter Admin Password"
-                          class="btn_outline form-control"
+                          type="text"
+                          name="course_fees"
+                          id="location"
+                          placeholder="Enter Course Fees"
+                          class="form-control"
                           required
                         />
                       </div>
                     </div>
-                   
-                   
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="location-label" for="location"
+                          >No. of lectures required </label
+                        >
+                        <input
+                          type="text"
+                          name="course_time"
+                          id="location"
+                          placeholder="eg. 25"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="location-label" for="location"
+                          >Course Incharge username </label
+                        >
+                        <input
+                          type="text"
+                          name="course_incharge"
+                          id="location"
+                          placeholder="Incharge username"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+             
                     <div class="col-md-12">
                       <button
                         type="submit"
                         class="btn btn-outline-primary"
-                        id="admin_btn_submit"
+                        id="btn_submit"
                       >
-                        Add Branch Admin
+                        Update course
                       </button>
                     </div>
                   </form>
@@ -250,7 +279,7 @@
               >
 
               <!-- Content SECTION -->
-                <div class="create_branch_box">
+                <div style="transform: scale(0.9);" class="create_branch_box">
                   <form id=" form_container" action="http://localhost:8100/admin/manage_courses" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
@@ -285,6 +314,36 @@
                      <div class="col-md-12">
                       <div class="form-group">
                         <label id="location-label" for="location"
+                          >Course Total fees </label
+                        >
+                        <input
+                          type="text"
+                          name="course_fees"
+                          id="location"
+                          placeholder="Enter Course Fees"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="location-label" for="location"
+                          >No. of lectures required </label
+                        >
+                        <input
+                          type="text"
+                          name="course_time"
+                          id="location"
+                          placeholder="eg. 25"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="location-label" for="location"
                           >Course Incharge username </label
                         >
                         <input
@@ -297,6 +356,21 @@
                         />
                       </div>
                     </div>
+
+                    <!-- Hidden Input to collect Branch ID -->
+
+                     <div style="display: none;" class="col-md-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="branch_id"
+                          id="branch_id"
+                          value="AdminNotLoggedIn";
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                     <!-- Hidden Input to collect Branch ID -->
              
                     <div class="col-md-12">
                       <button
@@ -373,7 +447,7 @@
 
               <!-- ********* 0003333 ********* -->
               <h4 style="display: none" id="dashboard_heading-2">
-                View Branches
+                View Courses
               </h4>
               <div
                 id="content_container-2"
@@ -392,6 +466,9 @@
                              <th scope="col">course Name</th>
                              <th scope="col">course subject</th>
                              <th scope="col">course Incharge</th>
+                             <th scope="col">course Fees</th>
+                             <th scope="col">course Time</th>
+                             <th scope="col">Edit</th>
                             
                             
                            </tr>
@@ -432,6 +509,7 @@
     document.getElementById("name").innerHTML = data.branch_Admin_name;
     document.getElementById("b_name").innerHTML = data.branch_name;
     document.getElementById("b_location").innerHTML = data.location;
+    document.getElementById("branch_id").value = data._id;
    })
 
     
@@ -459,6 +537,9 @@
             <td>${brachData[i].course_name}</td>
             <td>${brachData[i].course_subject}</td>
             <td>${brachData[i].course_incharge}</td>
+            <td>${brachData[i].course_fees}</td>
+            <td>${brachData[i].course_time}</td>
+            <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
             
           
             

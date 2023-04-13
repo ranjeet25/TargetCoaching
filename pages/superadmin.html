@@ -33,11 +33,205 @@
     <title>Document</title>
   </head>
   <body>
-    <section class="main_container container-fluid">
+    <section   class="main_container container-fluid">
 
     <!--  **********###### MODALS ######********** -->
+      <!--  ****** View Staff Modal ***** -->
+      <div class="modal fade " id="viewStaff" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div  style="width:600px;padding: 50px; margin-right: 1800px;" class="modal-dialog  ">
+          <div class="modal-content" style="width: 90vw; height:auto;" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Staff Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style=" width: 90vw; height: 70vh; overflow-y: scroll;" class="modal-body "  >
+                 <!-- Content SECTION -->
+              <div class="branch_staff_view">
+
+                  <table class="table table-bordered table-hover ">
+                         <thead >
+                           <tr  >
+                             <th scope="col">Srno</th>
+                             <th scope="col">Staff ID</th>
+                             <th scope="col">Name</th>
+                             <th scope="col">Username</th>
+                             <th scope="col">Join Date</th>
+                           
+                             
+                            
+                           </tr>
+                         </thead>
+                         <tbody id="staff_info_table">
+                           <tr >
+                             <th scope="row">1</th>
+                             <td id="branch_id"><span>No data found</span></td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                           </tr>
+
+                          
+                        
+                         </tbody>
+                        
+                 </table>
+              </div>
+                <!-- Content SECTION -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!--  ****** View Course Modal ***** -->
+      <div class="modal fade " id="viewCourse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div  style="width:600px;padding: 50px; margin-right: 1800px;" class="modal-dialog  ">
+          <div class="modal-content" style="width: 90vw; height:auto;" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Course Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style=" width: 90vw; height: 70vh; overflow-y: scroll;" class="modal-body "  >
+                 <!-- Content SECTION -->
+              <div class="branch_staff_view">
+
+                  <table class="table table-bordered table-hover ">
+                         <thead >
+                           <tr  >
+                             <th scope="col">Srno</th>
+                             <th scope="col">course ID</th>
+                             <th scope="col">Course</th>
+                             <th scope="col">Incharge</th>
+                             <th scope="col">Fees</th>
+                             <th scope="col">Subjects</th>
+                           </tr>
+                         </thead>
+                         <tbody id="course_info_table">
+
+                           <tr >
+                             <th scope="row">1</th>
+                             <td id="branch_id"><span>No data found</span></td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                           </tr>
+                      
+                        
+                         </tbody>
+                        
+                 </table>
+              </div>
+                <!-- Content SECTION -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!--  ****** View Student Modal ***** -->
+      <div class="modal fade " id="viewStudent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div  style="width:600px;padding: 50px; margin-right: 1800px;" class="modal-dialog  ">
+          <div class="modal-content" style="width: 90vw; height:auto;" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Students Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style=" width: 90vw; height: 70vh; overflow-y: scroll;" class="modal-body "  >
+                 <!-- Content SECTION -->
+              <div class="branch_staff_view">
+
+                  <table class="table table-bordered table-hover ">
+                         <thead >
+                           <tr  >
+                             <th scope="col">Srno</th>
+                             <th scope="col">ID</th>
+                             <th scope="col">Name</th>
+                             <th scope="col">username</th>
+                             <th scope="col">course</th>
+                             <th scope="col">fees pending</th>
+                             <th scope="col">Joining date</th>
+                           </tr>
+                         </thead>
+                         <tbody id="student_info_table">
+                      <tr >
+                             <th scope="row">1</th>
+                             <td id="branch_id"><span>No data found</span></td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                           </tr>
+                        
+                         </tbody>
+                        
+                 </table>
+              </div>
+                <!-- Content SECTION -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!--  ****** View BATCH Modal ***** -->
+      <div class="modal fade " id="viewbatch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div  style="width:600px;padding: 50px; margin-right: 1800px;" class="modal-dialog  ">
+          <div class="modal-content" style="width: 90vw; height:auto;" >
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Batch Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div style=" width: 90vw; height: 70vh; overflow-y: scroll;" class="modal-body "  >
+                 <!-- Content SECTION -->
+              <div class="branch_staff_view">
+
+                  <table class="table table-bordered table-hover ">
+                         <thead >
+                           <tr  >
+                             <th scope="col">Srno</th>
+                             <th scope="col">ID</th>
+                             <th scope="col">Batch Name</th>
+                             <th scope="col">Incharge</th>
+                             <th scope="col">course</th>
+                             <th scope="col">Time</th>
+                             
+                           </tr>
+                         </thead>
+                         <tbody id="batch_info_table">
+                      <tr >
+                             <th scope="row">1</th>
+                             <td id="branch_id"><span>No data found</span></td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                             <td>No data found</td>
+                            
+                           </tr>
+                        
+                         </tbody>
+                        
+                 </table>
+              </div>
+                <!-- Content SECTION -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
       <!--  ****** EDIT Modal ***** -->
-      <div class="modal fade " id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade " id="addAdmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered ">
           <div class="modal-content" style="width: auto; height:auto;">
             <div class="modal-header">
@@ -131,6 +325,92 @@
       
       <!--  **********###### MODALS  ENDS ######********** -->
 
+      <!--  ****** UPDATE INFO Modal ***** -->
+      <div class="modal fade " id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content" style="width: auto; height:auto;">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModal">Update Branch Info</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body " >
+              <div class=" add_branch_admin create_branch_box">
+                 <form id=" form_container" action="http://localhost:8100/superAdmin/update" method="POST">
+                   <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_id"></label>
+                          Branch Id</label
+                        >
+                        <input
+                          type="text"
+                          name="branch_id"
+                          id="branch_id"
+                          placeholder="Enter Branch ID"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="branch-label" for="branch_name"
+                          >New Branch Name</label
+                        >
+                        <input
+                          type="text"
+                          name="branch_name"
+                          id="branch_name"
+                          placeholder="Enter Branch Name"
+                          class="btn_outline form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="location-label" for="location"
+                          >New Location</label
+                        >
+                        <input
+                          type="text"
+                          name="location"
+                          id="location"
+                          placeholder="Enter Location"
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label id="date-label" for="date">Select Date</label>
+                        <input type="date" name="date" class="form-control" id="date" />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button
+                        type="submit"
+                        class="btn btn-outline-primary"
+                        id="btn_submit"
+                      >
+                        Update Branch Info
+                      </button>
+
+                     
+                    </div>
+                  </form>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
+      <!--  **********###### MODALS  ENDS ######********** -->
+
 
 
       <div class="row">
@@ -141,12 +421,19 @@
           <section class="profile_box row">
             <div class="profile_content">
              
-              <h6>Admin Panel</h6>
-              <h4> Sonali Patil</h4>
+              <h6>SuperAdmin Panel</h6>
+              <h4> Sonali Badekar</h4>
               <p>Role <span>SuperAdmin</span></p>
             </div>
           </section>
           <section class="button_box">
+            <button
+              onclick="viewDashboard()"
+              class="side_btn btn btn-outline-light"
+            >
+              Dashboard
+            </button>
+
             <button
               onclick="createBranch()"
               class="side_btn btn btn-outline-light"
@@ -182,11 +469,66 @@
             <div class="content_1 container">
               <!-- ********* Contents ********* -->
 
+                <!-- ********* MAIN DASHBOARD ********* -->
+              <h4 id="dashboard_heading-main">Dashboard</h4>
+              <div
+                id="content_container-main"
+                class="content_container rounded rounded-5"
+                style="display: flex; flex-direction: column;"
+              >
+
+              <!-- Content SECTION -->
+              <div>
+                 <form  id=" form_container" action="http://localhost:8100/superAdmin/getDetails" method="POST">
+                  <div style="display: flex; width: 1000px;">
+                   
+                    <div style="width: 400px; margin-right: 10px;" class="form-group">
+                        
+                        <input
+                          type="text"
+                          name="branch_id"
+                          id="branch_id"
+                          placeholder="Enter Branch Id To see Details"
+                          class="btn_outline form-control"
+                          required
+                        />
+                    </div>
+                  
+                    <div style="margin-top: 5px;">
+                      <button
+                        type="submit"
+                        class="btn btn-outline-primary"
+                        id="btn_submit"
+                      >
+                        Get Details
+                      </button>
+                    </div>
+
+                      <div style="margin-top: 5px;margin-left: 50px; ">
+                      <p style="border-radius: 15px; background-color: rgb(152, 41, 255); color: aliceblue;padding: 5px 10px;">Branch Id :<span id="display_branch_id"> No data found with this ID </span></p>
+                    </div>
+
+                  </div>
+                  </form>
+
+              </div>
+             
+                <div style="width:1000px; display: flex; justify-content: center; justify-content: space-evenly;" class="create_branch_box">
+                  <div data-bs-toggle="modal" data-bs-target="#viewStaff" class="dash_card"><p>View Staffs</p></div>
+                  <div data-bs-toggle="modal" data-bs-target="#viewCourse" class="dash_card"><p>View Courses</p></div>
+                  <div data-bs-toggle="modal" data-bs-target="#viewStudent" class="dash_card"><p>View Students</p></div>
+                  <div data-bs-toggle="modal" data-bs-target="#viewbatch" class="dash_card"><p>View Batches</p></div>
+                
+                </div>
+                  <!-- Content SECTION -->
+              </div>
+
               <!-- ********* 0001111 ********* -->
-              <h4 id="dashboard_heading-1">Create a new Branch</h4>
+              <h4 style="display: none" id="dashboard_heading-1">Create a new Branch</h4>
               <div
                 id="content_container-1"
                 class="content_container rounded rounded-5"
+                style="display: none"
               >
 
               <!-- Content SECTION -->
@@ -236,6 +578,8 @@
                       >
                         Create Branch
                       </button>
+
+                     
                     </div>
                   </form>
                 </div>
@@ -294,6 +638,7 @@
                       >
                         Remove Branch
                       </button>
+                     
                     </div>
                   </form>
                 </div>
@@ -322,6 +667,7 @@
                              <th scope="col">Branch Name</th>
                              <th scope="col">Branch Location</th>
                              <th scope="col">Opening Date</th>
+                             <th scope="col">Admin</th>
                              <th scope="col">Edit</th>
                             
                            </tr>
@@ -360,11 +706,9 @@
       getData();
     })
 
-
-    var branch_id;
-
     function getData(){
       let placeholder = document.querySelector("#data-output");
+     
       let out = "";
       for(let i=0 ; i<brachData.length ; i++){
 
@@ -376,15 +720,161 @@
             <td>${brachData[i].branch_name}</td>
             <td>${brachData[i].location}</td>
             <td>${date}</td>
-            <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
+            <td>  <button data-bs-toggle="modal" data-bs-target="#addAdmin" id="edit-btn"><i class="bi bi-person-plus"></i></button></td>
+            <td>  <button data-bs-toggle="modal" data-bs-target="#updateModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>
             
          </tr>
       `;
     }
-
+  
     placeholder.innerHTML = out;
   } 
 
+  // ****************** Branch staff view ******************
+
+    var staffInfo = new Object()
+    var courseInfo = new Object()
+    var studentData = new Object()
+    var batchData = new Object()
+    const branch_info_url ="http://localhost:8100/superAdmin/branchinfo";
+    fetch(branch_info_url)
+    .then(res => res.json())
+    .then(data =>{
+      staffInfo = data[0];
+      courseInfo = data[2];
+      studentData = data[1];
+      batchData = data[3]
+      console.log(batchData)
+      getStaffData();
+      courseData();
+      student()
+      batch()
+    })
+
+    function getStaffData(){
+
+
+      let table_selector = document.getElementById("staff_info_table");
+      // console.log(table_selector)
+
+       document.getElementById("display_branch_id").innerHTML = staffInfo[0].branch_id;
+      
+      let out1 = "";
+      for(let i=0 ; i<staffInfo.length ; i++){
+      
+      var date = staffInfo[0].date.slice(0,10);
+      
+      out1 += `
+         <tr>
+            <td>${i+1}</td>
+            <td id="branch_id"><span>${staffInfo[i]._id}<span></td>
+            <td>${staffInfo[i].staff_name}</td>
+            <td>${staffInfo[i].staff_username}</td>
+            <td>${date}</td>
+          
+         </tr>
+      `;
+    }
+
+    
+
+    table_selector.innerHTML = out1;
+  } 
+
+    function courseData(){
+
+
+      let table_selector = document.getElementById("course_info_table");
+      // console.log(table_selector)
+
+      document.getElementById("display_branch_id").innerHTML = staffInfo[0].branch_id;
+      
+      let out1 = "";
+      for(let i=0 ; i<courseInfo.length ; i++){
+      
+      // var date = courseInfo[0].date.slice(0,10);
+       
+      out1 += `
+         <tr>
+            <td>${i+1}</td>
+            <td id="branch_id"><span>${courseInfo[i]._id}<span></td>
+            <td>${courseInfo[i].course_name}</td>
+            <td>${courseInfo[i].course_incharge}</td>
+            <td>${courseInfo[i].course_fees}</td>
+            <td>${courseInfo[i].course_subject}</td>
+           
+           
+         </tr>
+      `;
+    }
+
+    
+
+    table_selector.innerHTML = out1;
+  } 
+
+
+    function student(){
+
+      let table_selector = document.getElementById("batch_info_table");
+      // console.log(table_selector)
+      document.getElementById("display_branch_id").innerHTML = staffInfo[0].branch_id;
+      
+      let out1 = "";
+      for(let i=0 ; i<batchData.length ; i++){
+      
+      // var date = studentData[0].date.slice(0,10);
+     
+      out1 += `
+         <tr>
+            <td>${i+1}</td>
+            <td id="branch_id"><span>${batchData[i]._id}<span></td>
+            <td>${batchData[i].batch_name}</td>
+            <td>${batchData[i].batch_incharge}</td>
+            <td>${batchData[i].batch_course}</td>
+            <td>${batchData[i].batch_time}</td>
+           
+         </tr>
+      `;
+    }
+
+    table_selector.innerHTML = out1;
+  } 
+
+   function batch(){
+
+      let table_selector = document.getElementById("student_info_table");
+      // console.log(table_selector)
+      document.getElementById("display_branch_id").innerHTML = staffInfo[0].branch_id;
+      
+      let out1 = "";
+      for(let i=0 ; i<studentData.length ; i++){
+      
+      var date = studentData[0].date.slice(0,10);
+       console.log(studentData.length)
+      out1 += `
+         <tr>
+            <td>${i+1}</td>
+            <td id="branch_id"><span>${studentData[i]._id}<span></td>
+            <td>${studentData[i].student_name}</td>
+            <td>${studentData[i].student_username}</td>
+            <td>${studentData[i].course}</td>
+            <td>${studentData[i].fees_pending}</td>
+            <td>${date}</td>
+           
+           
+         </tr>
+      `;
+    }
+
+    table_selector.innerHTML = out1;
+  } 
+  
+
+  // ****************** Branch staff view ******************
+
+      var dh = document.getElementById("dashboard_heading-main");
+      var cc = document.getElementById("content_container-main");
 
       var dh1 = document.getElementById("dashboard_heading-1");
       var cc1 = document.getElementById("content_container-1");
@@ -395,10 +885,29 @@
       var dh3 = document.getElementById("dashboard_heading-3");
       var cc3 = document.getElementById("content_container-3");
 
+      function viewDashboard() {
+        if ((dh.style.display = "none") && (cc.style.display = "none")) {
+          dh.style.display = "inline";
+          cc.style.display = "flex";
+
+          dh1.style.display = "none";
+          cc1.style.display = "none";
+
+          dh2.style.display = "none";
+          cc2.style.display = "none";
+
+          dh3.style.display = "none";
+          cc3.style.display = "none";
+        }
+      }
+
       function createBranch() {
         if ((dh1.style.display = "none") && (cc1.style.display = "none")) {
           dh1.style.display = "inline";
           cc1.style.display = "flex";
+
+          dh.style.display = "none";
+          cc.style.display = "none";
 
           dh2.style.display = "none";
           cc2.style.display = "none";
@@ -413,6 +922,9 @@
           dh2.style.display = "inline";
           cc2.style.display = "flex";
 
+          dh.style.display = "none";
+          cc.style.display = "none";
+
           dh1.style.display = "none";
           cc1.style.display = "none";
 
@@ -424,6 +936,9 @@
         if ((dh3.style.display = "none") && (cc3.style.display = "none")) {
           dh3.style.display = "inline";
           cc3.style.display = "flex";
+
+          dh.style.display = "none";
+          cc.style.display = "none";
 
           dh2.style.display = "none";
           cc2.style.display = "none";

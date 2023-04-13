@@ -6,6 +6,7 @@ const TeacherSchema = new mongoose.Schema({
   staff_password: String,
   date: Date,
   role: String,
+  branch_id: String,
 });
 
 TeacherModel = mongoose.model("teachersInfo", TeacherSchema);
