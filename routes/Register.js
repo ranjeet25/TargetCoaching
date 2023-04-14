@@ -8,21 +8,27 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  UserModel.create({
-    name: req.body.name,
-    email: req.body.email,
-    age: req.body.age,
-    role: req.body.role,
-    phone: req.body.phone,
-    gender: req.body.gender,
-    username: req.body.username,
-    password: req.body.password,
-  }).then((result) => {
-    res.status(200);
-    console.log(result);
+  UserModel.findOne({
+    $or: [{ email: req.body.email }, { username: req.body.username }],
+  }).then((data) => {
+    if (data == null) {
+      UserModel.create({
+        name: req.body.name,
+        email: req.body.email,
+        age: req.body.age,
+        role: req.body.role,
+        phone: req.body.phone,
+        gender: req.body.gender,
+        username: req.body.username,
+        password: req.body.password,
+      }).then((result) => {
+        res.sendFile(path.join(__dirname, "../pages/alert/sucess.html"));
+        // console.log(result);
+      });
+    } else {
+      res.sendFile(path.join(__dirname, "../pages/alert/registered.html"));
+    }
   });
-
-  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
 });
 
 module.exports = router;

@@ -26,8 +26,7 @@ router.post("/", (req, res) => {
     UserModel.findOne({ username: username }).then((result) => {
       if (result == null) {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
-      }
-      if (result.password === password) {
+      } else if (result.password === password) {
         superAdminData = result;
         res.sendFile(path.join(__dirname, "../pages/superAdmin.html"));
       } else {
@@ -38,13 +37,12 @@ router.post("/", (req, res) => {
     adminModel.findOne({ branch_Admin_username: username }).then((result) => {
       if (result == null) {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
-      }
-      if (result.branch_Admin_password === password) {
+      } else if (result.branch_Admin_password === password) {
         adminData = result;
         // console.log(adminData);
         res.sendFile(path.join(__dirname, "../pages/admin.html"));
       } else {
-        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
+        res.send({ msg: "wrong username or password" });
       }
     });
   } else if (role == "staff") {
@@ -59,8 +57,7 @@ router.post("/", (req, res) => {
     staffModel.findOne({ staff_username: username }).then((result) => {
       if (result == null) {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
-      }
-      if (result.staff_password === password) {
+      } else if (result.staff_password === password) {
         staffData[2] = result;
         res.sendFile(path.join(__dirname, "../pages/staff.html"));
       } else {
