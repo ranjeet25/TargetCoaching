@@ -10,6 +10,7 @@ const StudentSchema = new mongoose.Schema({
   date: Date,
   role: String,
   branch_id: String,
+  batch: String,
 });
 
 StudentsModel = mongoose.model("StudentsInfo", StudentSchema);

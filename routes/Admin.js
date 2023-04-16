@@ -81,6 +81,7 @@ router.post("/manage_student/", (req, res) => {
     date: req.body.date,
     branch_id: req.body.branch_id,
     role: "student",
+    batch: req.body.batch,
   }).then((result) => {
     res.status(200);
     console.log(result);
@@ -216,7 +217,7 @@ router.post("/deleteBatch", (req, res) => {
   });
 
   // res.send("Batch Deleted");
-  res.sendFile(path.join(__dirname, "../pages/alert/submit.html"));
+  res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
 router.get("/batchDetails", (req, res) => {

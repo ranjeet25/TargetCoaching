@@ -236,8 +236,8 @@
               >
 
               <!-- Content SECTION -->
-                <div class="create_branch_box" style="transform: scale(0.8);">
-                  <form id=" form_container" action="http://localhost:8100/admin/manage_student" method="POST" >
+                <div  class="create_branch_box" style="transform: scale(0.8);overflow-y: scroll;height: 100vh;">
+                  <form  id=" form_container" action="http://localhost:8100/admin/manage_student" method="POST" >
                     <div class="col-md-12" >
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
@@ -296,6 +296,22 @@
                           name="course"
                           id="location"
                           placeholder="Enter Course enrolled "
+                          class="form-control"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                     <div class="col-md-12">
+                      <div class="form-group" >
+                        <label id="location-label" for="location"
+                          >Batch</label
+                        >
+                        <input
+                          type="text"
+                          name="batch"
+                          id="location"
+                          placeholder="Enter Batch allocated "
                           class="form-control"
                           required
                         />
@@ -518,7 +534,7 @@
       let out = "";
       for(let i=0 ; i<brachData.length ; i++){
 
-      date = brachData[0].date.slice(0,10);
+      date = brachData[i].date.slice(0,10);
       out += `
          <tr>
             <td>${i+1}</td>
