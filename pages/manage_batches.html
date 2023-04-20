@@ -424,7 +424,7 @@
                 style="display: none"
               >
                 <!-- Content SECTION -->
-              <div class="branch_detail_box">
+              <div style="overflow-y: scroll;" class="branch_detail_box">
 
                 
                   <table class="table table-bordered table-hover ">
@@ -482,7 +482,7 @@
      
     
     var brachData = new Object()
-    const url ="http://localhost:8100/admin/batchDetails";
+    const url ="http://localhost:8100/login/batchDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{

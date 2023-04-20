@@ -9,6 +9,9 @@ const courseModel = require("../models/Courses");
 const batchModel = require("../models/Batches");
 
 router.get("/", (req, res) => {
+  // staffModel.find({ branch_id: "64414c8040a2644b7fb87da1" }).then((res) => {
+  //   console.log(res);
+  // });
   res.sendFile(path.join(__dirname, "../pages/login.html"));
 });
 
@@ -16,6 +19,13 @@ var superAdminData = new Object();
 var adminData = new Object();
 var studentData = new Object();
 var staffData = new Array();
+
+var branchStaffData = new Array();
+var branchStudentData = new Array();
+var branchCoursesData = new Array();
+var branchBatchesData = new Array();
+
+var branch_id;
 
 router.post("/", (req, res) => {
   var username = req.body.username;
@@ -38,11 +48,26 @@ router.post("/", (req, res) => {
       if (result == null) {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       } else if (result.branch_Admin_password === password) {
+        var branch_id = result._id.toString();
+
+        staffModel.find({ branch_id: branch_id }).then((data) => {
+          branchStaffData = data;
+          console.log(branchStaffData);
+        });
+        studentModel.find({ branch_id: branch_id }).then((data) => {
+          branchStudentData = data;
+        });
+        courseModel.find({ branch_id: branch_id }).then((data) => {
+          branchCoursesData = data;
+        });
+        batchModel.find({ branch_id: branch_id }).then((data) => {
+          branchBatchesData = data;
+        });
         adminData = result;
         // console.log(adminData);
         res.sendFile(path.join(__dirname, "../pages/admin.html"));
       } else {
-        res.send({ msg: "wrong username or password" });
+        res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       }
     });
   } else if (role == "staff") {
@@ -91,4 +116,28 @@ router.get("/studentData", (req, res) => {
   res.send(studentData);
 });
 
+// *********  BIG DETAILLLLSSSSS *********
+
+router.get("/staffDetails", (req, res) => {
+  res.send(branchStaffData);
+});
+
+router.get("/studentDetails", (req, res) => {
+  res.send(branchStudentData);
+});
+
+router.get("/courseDetails", (req, res) => {
+  res.send(branchCoursesData);
+});
+
+router.get("/batchDetails", (req, res) => {
+  res.send(branchBatchesData);
+});
+
 module.exports = router;
+// module.exports = {
+//   branchStudentData,
+//   branchStaffData,
+//   branchCoursesData,
+//   branchBatchesData,
+// };

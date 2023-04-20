@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
+const test = require("./Login");
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/admin.html"));
@@ -9,6 +10,11 @@ router.get("/", (req, res) => {
 // ************ STAFF ROUTES ************
 
 const TeacherModel = require("../models/Teachers");
+
+var admin_branch_id;
+router.post("/branch_id", (req, res) => {
+  admin_branch_id = req.body.branch_id;
+});
 
 router.post("/manage_staff", (req, res) => {
   TeacherModel.create({
@@ -37,11 +43,11 @@ router.post("/removeStaff", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
-router.get("/staffDetails", (req, res) => {
-  TeacherModel.find().then((result) => {
-    res.send(result);
-  });
-});
+// router.get("/staffDetails", (req, res) => {
+//   TeacherModel.find().then((result) => {
+//     res.send(result);
+//   });
+// });
 
 router.post("/update", (req, res) => {
   const staff_id = req.body.staff_id;
@@ -101,11 +107,16 @@ router.post("/removeStudent", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
-router.get("/studentDetails", (req, res) => {
-  StudentsInfo.find().then((result) => {
-    res.send(result);
-  });
-});
+// router.get("/studentDetails", (req, res) => {
+//   console.log(admin_branch_id);
+//   StudentsInfo.find({ branch_id: admin_branch_id })
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 router.post("/student_update", (req, res) => {
   const student_id = req.body.student_id;
@@ -159,11 +170,11 @@ router.post("/deleteCourse", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
-router.get("/courseDetails", (req, res) => {
-  CoursesInfo.find().then((result) => {
-    res.send(result);
-  });
-});
+// router.get("/courseDetails", (req, res) => {
+//   CoursesInfo.find({ branch_id: admin_branch_id }).then((result) => {
+//     res.send(result);
+//   });
+// });
 
 router.post("/course_update", (req, res) => {
   const course_id = req.body.course_id;
@@ -220,11 +231,11 @@ router.post("/deleteBatch", (req, res) => {
   res.sendFile(path.join(__dirname, "../pages/alert/removed.html"));
 });
 
-router.get("/batchDetails", (req, res) => {
-  BatchesInfo.find().then((result) => {
-    res.send(result);
-  });
-});
+// router.get("/batchDetails", (req, res) => {
+//   BatchesInfo.find({ branch_id: admin_branch_id }).then((result) => {
+//     res.send(result);
+//   });
+// });
 
 router.post("/update_batch", (req, res) => {
   const batch_id = req.body.batch_id;

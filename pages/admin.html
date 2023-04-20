@@ -187,7 +187,7 @@
             </button>
             <!-- SUB BUTTON 03 -->
             <button
-                onclick="viewStaff()"
+              onclick="viewStaff()"
                class="staff add_staff btn btn-outline-light "
                 >
                 View Staffs
@@ -409,7 +409,7 @@
                 style="display: none"
               >
                 <!-- Content SECTION -->
-              <div class="branch_detail_box">
+              <div style="overflow-y: scroll;" class="branch_detail_box">
 
                 
                   <table class="table table-bordered table-hover ">
@@ -451,11 +451,18 @@
 
         </div>
       </div>
+
+      <!-- <form style="display: none;"  id="myform" method="post"  action="http://localhost:8100/admin/branch_id">
+        <input name="branch_id" id="admin_branch_id" type="text">
+        
+      </form> -->
+
     </section>
 
     <script>
 
-      var branch_id;
+
+   var branch_id;
 
    fetch("http://localhost:8100/login/adminData")
    .then(res =>res.json())
@@ -464,13 +471,16 @@
     document.getElementById("b_name").innerHTML = data.branch_name;
     document.getElementById("b_location").innerHTML = data.location;
     document.getElementById("branch_id").value = data._id;
-   
+
    })
 
-     
-    
+
+
+   
+  
+
     var brachData = new Object()
-    const url ="http://localhost:8100/admin/staffDetails";
+    const url ="http://localhost:8100/login/staffDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{
@@ -529,6 +539,8 @@
         }
       }
       function viewStaff() {
+
+        // 
         if ((dh2.style.display = "none") && (cc2.style.display = "none")) {
           dh2.style.display = "inline";
           cc2.style.display = "flex";

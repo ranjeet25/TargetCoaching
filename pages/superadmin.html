@@ -712,7 +712,7 @@
       let out = "";
       for(let i=0 ; i<brachData.length ; i++){
 
-      date = brachData[0].date.slice(0,10);
+      date = brachData[i].date.slice(0,10);
       out += `
          <tr>
             <td>${i+1}</td>
@@ -762,7 +762,7 @@
       let out1 = "";
       for(let i=0 ; i<staffInfo.length ; i++){
       
-      var date = staffInfo[0].date.slice(0,10);
+      var date = staffInfo[i].date.slice(0,10);
       
       out1 += `
          <tr>
@@ -850,7 +850,7 @@
       let out1 = "";
       for(let i=0 ; i<studentData.length ; i++){
       
-      var date = studentData[0].date.slice(0,10);
+      var date = studentData[i].date.slice(0,10);
        console.log(studentData.length)
       out1 += `
          <tr>
