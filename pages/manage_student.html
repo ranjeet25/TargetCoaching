@@ -470,6 +470,7 @@
                              <th scope="col"> Name</th>
                              <th scope="col">Username</th>
                              <th scope="col">course</th>
+                             <th scope="col">fees</th>
                              <th scope="col">fees pending</th>
                              <th scope="col">Admission date</th>
                              <th scope="col">Edit</th>
@@ -535,6 +536,18 @@
       for(let i=0 ; i<brachData.length ; i++){
 
       date = brachData[i].date.slice(0,10);
+      
+      var date = brachData[i].date.slice(0,10);
+      var fees_pending = brachData[i].fees_pending;
+      var fees_paid = brachData[i].fees_paid;
+      const fees_pending_arr = fees_pending.split(",");
+      const fees_paid_arr = fees_paid.split(",");
+
+      var total_fees_pending = fees_pending_arr[0] + fees_pending_arr[1];
+      var total_fees_paid = fees_paid_arr[0] + fees_paid_arr[1];
+
+      var total_fees =parseInt(total_fees_pending)  + parseInt(total_fees_paid) ;
+      //  console.log(total_fees)
       out += `
          <tr>
             <td>${i+1}</td>
@@ -542,6 +555,7 @@
             <td>${brachData[i].student_name}</td>
             <td>${brachData[i].student_username}</td>
             <td>${brachData[i].course}</td>
+            <td>${total_fees}</td>
             <td>${brachData[i].fees_pending}</td>
             <td>${date}</td>
             <td>  <button data-bs-toggle="modal" data-bs-target="#editModal" id="edit-btn"><i class="bi bi-pencil-square"></i></button></td>

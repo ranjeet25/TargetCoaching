@@ -153,6 +153,7 @@
                              <th scope="col">Name</th>
                              <th scope="col">username</th>
                              <th scope="col">course</th>
+                             <th scope="col">fees </th>
                              <th scope="col">fees pending</th>
                              <th scope="col">Joining date</th>
                            </tr>
@@ -851,7 +852,16 @@
       for(let i=0 ; i<studentData.length ; i++){
       
       var date = studentData[i].date.slice(0,10);
-       console.log(studentData.length)
+      var fees_pending = studentData[i].fees_pending;
+      var fees_paid = studentData[i].fees_paid;
+      const fees_pending_arr = fees_pending.split(",");
+      const fees_paid_arr = fees_paid.split(",");
+
+      var total_fees_pending = fees_pending_arr[0] + fees_pending_arr[1];
+      var total_fees_paid = fees_paid_arr[0] + fees_paid_arr[1];
+
+      var total_fees =parseInt(total_fees_pending)  + parseInt(total_fees_paid) ;
+      //  console.log(total_fees)
       out1 += `
          <tr>
             <td>${i+1}</td>
@@ -859,6 +869,7 @@
             <td>${studentData[i].student_name}</td>
             <td>${studentData[i].student_username}</td>
             <td>${studentData[i].course}</td>
+            <td>${total_fees}</td>
             <td>${studentData[i].fees_pending}</td>
             <td>${date}</td>
            

@@ -90,7 +90,7 @@ router.post("/manage_student/", (req, res) => {
     batch: req.body.batch,
   }).then((result) => {
     res.status(200);
-    console.log(result);
+    // console.log(result);
   });
 
   // res.send("Student Added");
@@ -214,7 +214,7 @@ router.post("/manage_batches/", (req, res) => {
     branch_id: req.body.branch_id,
   }).then((result) => {
     res.status(200);
-    console.log(result);
+    // console.log(result);
   });
 
   // res.send("Batch Added");

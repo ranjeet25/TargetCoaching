@@ -52,10 +52,11 @@ router.post("/", (req, res) => {
 
         staffModel.find({ branch_id: branch_id }).then((data) => {
           branchStaffData = data;
-          console.log(branchStaffData);
+          // console.log(branchStaffData);
         });
         studentModel.find({ branch_id: branch_id }).then((data) => {
           branchStudentData = data;
+          // console.log(branchStudentData);
         });
         courseModel.find({ branch_id: branch_id }).then((data) => {
           branchCoursesData = data;
