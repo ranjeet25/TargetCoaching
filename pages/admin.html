@@ -247,8 +247,16 @@
             <div style="background-color: rgb(188, 127, 245);" class="content_1 container">
               <!-- ********* Contents ********* -->
 
+              
+
               <!-- ********* 0001111 ********* -->
-              <h4 id="dashboard_heading-1">Add Staffs</h4>
+              <div style="display: flex;" id="dashboard_heading-1"> <h4>Add Staffs</h4>
+                <form id="myform"  >
+                  <input style="display: none;" name="branch_id" id="admin_branch_id" type="text"/>
+                  <input value="Load data" style=" color: #fff; background-color: rgb(36, 36, 36); border: none; font-size: small; padding: 5px 10px; border-radius: 33px;margin-left: 5px;" type="submit" >
+                </form>
+              </div>
+               
               <div
                 id="content_container-1"
                 class="content_container rounded rounded-5"
@@ -400,14 +408,24 @@
               
 
               <!-- ********* 0003333 ********* -->
-              <h4 style="display: none" id="dashboard_heading-2">
+              <div style="display: flex;">
+                <h4 style="display: none" id="dashboard_heading-2">
                 View Staff Records
               </h4>
+            
+
+              </div>
+              
+              
               <div
                 id="content_container-2"
                 class="content_container rounded rounded-5"
                 style="display: none"
               >
+
+                
+
+               
                 <!-- Content SECTION -->
               <div style="overflow-y: scroll;" class="branch_detail_box">
 
@@ -452,17 +470,15 @@
         </div>
       </div>
 
-      <!-- <form style="display: none;"  id="myform" method="post"  action="http://localhost:8100/admin/branch_id">
-        <input name="branch_id" id="admin_branch_id" type="text">
-        
-      </form> -->
+     
 
     </section>
 
     <script>
 
-
    var branch_id;
+   
+
 
    fetch("http://localhost:8100/login/adminData")
    .then(res =>res.json())
@@ -471,16 +487,34 @@
     document.getElementById("b_name").innerHTML = data.branch_name;
     document.getElementById("b_location").innerHTML = data.location;
     document.getElementById("branch_id").value = data._id;
-
+    document.getElementById("admin_branch_id").value = data._id;
+    branch_id =data._id;
    })
 
+   var form = document.getElementById("myform");
 
+    form.addEventListener('submit' ,function(e){
+        e.preventDefault();
+        fetch("http://localhost:8100/admin/branch_id", {
+           method: "POST",
+           body: JSON.stringify({
+          branch_id: branch_id,
+          title: "Fix my fgfg bugs",
+          completed: false
+        }),
+          headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+        })
+          .then((response) => response.json())
+          .then((json) => {console.log(json); location.reload()});
+
+        })
 
    
-  
 
     var brachData = new Object()
-    const url ="http://localhost:8100/login/staffDetails";
+    const url ="http://localhost:8100/admin/staffDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{

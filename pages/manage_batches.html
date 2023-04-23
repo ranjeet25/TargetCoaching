@@ -415,8 +415,14 @@
               
 
               <!-- ********* 0003333 ********* -->
-              <h4 style="display: none" id="dashboard_heading-2">
-                View Batches
+              <div style="display: none;" id="dashboard_heading-2"> <h4>View Batches</h4>
+                <form  id="myform"  >
+                  <input style="display: none;" name="branch_id" id="admin_branch_id" type="text"/>
+                  <input value="Load data" style=" color: #fff; background-color: rgb(36, 36, 36); border: none; font-size: small; padding: 5px 10px; border-radius: 33px;margin-left: 5px;" type="submit" >
+                </form>
+              </div>
+            
+                
               </h4>
               <div
                 id="content_container-2"
@@ -466,6 +472,12 @@
 
         </div>
       </div>
+
+       <form style="display: none;"   id="myform"  >
+        <input name="branch_id" id="admin_branch_id" type="text"/>
+        <input onload="submit()" type="submit" >
+      </form>
+      
     </section>
 
     <script>
@@ -477,12 +489,32 @@
     document.getElementById("b_name").innerHTML = data.branch_name;
     document.getElementById("b_location").innerHTML = data.location;
     document.getElementById("branch_id").value = data._id;
+
+    var form = document.getElementById("myform");
+     
+      form.addEventListener('submit' ,function(e){
+        e.preventDefault();
+        fetch("http://localhost:8100/admin/branch_id", {
+           method: "POST",
+           body: JSON.stringify({
+          branch_id: data._id,
+          title: "sent branch ID",
+          completed: false
+        }),
+          headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+        })
+          .then((response) => response.json())
+         .then((json) => {console.log(json); location.reload()});
+
+        })
    })
 
      
     
     var brachData = new Object()
-    const url ="http://localhost:8100/login/batchDetails";
+    const url ="http://localhost:8100/admin/batchDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{
@@ -539,7 +571,7 @@
       }
       function viewStaff() {
         if ((dh2.style.display = "none") && (cc2.style.display = "none")) {
-          dh2.style.display = "inline";
+          dh2.style.display = "flex";
           cc2.style.display = "flex";
 
           dh1.style.display = "none";

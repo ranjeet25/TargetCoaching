@@ -119,21 +119,21 @@ router.get("/studentData", (req, res) => {
 
 // *********  BIG DETAILLLLSSSSS *********
 
-router.get("/staffDetails", (req, res) => {
-  res.send(branchStaffData);
-});
+// router.get("/staffDetails", (req, res) => {
+//   res.send(branchStaffData);
+// });
 
-router.get("/studentDetails", (req, res) => {
-  res.send(branchStudentData);
-});
+// router.get("/studentDetails", (req, res) => {
+//   res.send(branchStudentData);
+// });
 
-router.get("/courseDetails", (req, res) => {
-  res.send(branchCoursesData);
-});
+// router.get("/courseDetails", (req, res) => {
+//   res.send(branchCoursesData);
+// });
 
-router.get("/batchDetails", (req, res) => {
-  res.send(branchBatchesData);
-});
+// router.get("/batchDetails", (req, res) => {
+//   res.send(branchBatchesData);
+// });
 
 module.exports = router;
 // module.exports = {
