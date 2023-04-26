@@ -48,7 +48,7 @@
             </div>
             <div class="modal-body " >
               <div class=" add_branch_admin create_branch_box">
-                 <form id=" form_container" action="http://localhost:8100/admin/update_batch" method="POST">
+                 <form id=" form_container" action="https://target-coaching.onrender.com/admin/update_batch" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
@@ -265,7 +265,7 @@
 
               <!-- Content SECTION -->
                 <div class="create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/admin/manage_batches" method="POST">
+                  <form id=" form_container" action="https://target-coaching.onrender.com/admin/manage_batches" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
@@ -367,7 +367,7 @@
 
                 <!-- Content SECTION remove branches -->
                 <div class=" remove_branch create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/admin/deleteBatch" method="post">
+                  <form id=" form_container" action="https://target-coaching.onrender.com/admin/deleteBatch" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
@@ -482,7 +482,7 @@
 
     <script>
 
-   fetch("http://localhost:8100/login/adminData")
+   fetch("https://target-coaching.onrender.com/login/adminData")
    .then(res =>res.json())
    .then(data =>{
     document.getElementById("name").innerHTML = data.branch_Admin_name;
@@ -494,7 +494,7 @@
      
       form.addEventListener('submit' ,function(e){
         e.preventDefault();
-        fetch("http://localhost:8100/admin/branch_id", {
+        fetch("https://target-coaching.onrender.com/admin/branch_id", {
            method: "POST",
            body: JSON.stringify({
           branch_id: data._id,
@@ -514,7 +514,7 @@
      
     
     var brachData = new Object()
-    const url ="http://localhost:8100/admin/batchDetails";
+    const url ="https://target-coaching.onrender.com/admin/batchDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{

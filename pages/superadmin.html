@@ -241,7 +241,7 @@
             </div>
             <div class="modal-body " >
               <div class=" add_branch_admin create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/addAdmin" method="post">
+                  <form id=" form_container" action="https://target-coaching.onrender.com/superAdmin/addAdmin" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_id"></label>
@@ -336,7 +336,7 @@
             </div>
             <div class="modal-body " >
               <div class=" add_branch_admin create_branch_box">
-                 <form id=" form_container" action="http://localhost:8100/superAdmin/update" method="POST">
+                 <form id=" form_container" action="https://target-coaching.onrender.com/superAdmin/update" method="POST">
                    <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_id"></label>
@@ -480,7 +480,7 @@
 
               <!-- Content SECTION -->
               <div>
-                 <form  id=" form_container" action="http://localhost:8100/superAdmin/getDetails" method="POST">
+                 <form  id=" form_container" action="https://target-coaching.onrender.com/superAdmin/getDetails" method="POST">
                   <div style="display: flex; width: 1000px;">
                    
                     <div style="width: 400px; margin-right: 10px;" class="form-group">
@@ -534,7 +534,7 @@
 
               <!-- Content SECTION -->
                 <div class="create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin" method="POST">
+                  <form id=" form_container" action="https://target-coaching.onrender.com/superAdmin" method="POST">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"
@@ -599,7 +599,7 @@
 
                 <!-- Content SECTION remove branches -->
                 <div class=" remove_branch create_branch_box">
-                  <form id=" form_container" action="http://localhost:8100/superAdmin/removeBranch" method="post">
+                  <form id=" form_container" action="https://target-coaching.onrender.com/superAdmin/removeBranch" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_name"></label>
@@ -699,7 +699,7 @@
     <script>
     
     var brachData = new Object()
-    const url ="http://localhost:8100/superAdmin/branchDetails";
+    const url ="https://target-coaching.onrender.com/superAdmin/branchDetails";
     fetch(url)
     .then(res => res.json())
     .then(data =>{
@@ -737,7 +737,7 @@
     var courseInfo = new Object()
     var studentData = new Object()
     var batchData = new Object()
-    const branch_info_url ="http://localhost:8100/superAdmin/branchinfo";
+    const branch_info_url ="https://target-coaching.onrender.com/superAdmin/branchinfo";
     fetch(branch_info_url)
     .then(res => res.json())
     .then(data =>{
