@@ -67,5 +67,5 @@ app.use("/staff", Staff);
 // ***************  APP LISTEN ***************
 
 app.listen(PORT, () => {
-  console.log("sucess! server started ON " + "http://localhost:8100/");
+  console.log("sucess! server started ON " + `${PORT}`);
 });
