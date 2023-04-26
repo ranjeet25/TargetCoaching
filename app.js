@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const PORT = process.env.port || 8100;
+const PORT = process.env.PORT || 8100;
 const mongoose = require("mongoose");
 
 const bodyparser = require("body-parser");
@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 });
 
 // *************** MONGODB CONNECTION ***************
-const mongourl =
-  "mongodb+srv://sonalibadekar21:sonali123@cluster0.mbzxyso.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
 // const mongourl =
-//   "mongodb+srv://ranjeet25:admin@cluster0.3qqu0sa.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
+//   "mongodb+srv://sonalibadekar21:sonali123@cluster0.mbzxyso.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
+const mongourl =
+  "mongodb+srv://ranjeet25:admin@cluster0.3qqu0sa.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongourl)
