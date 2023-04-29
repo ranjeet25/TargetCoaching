@@ -46,7 +46,7 @@
             </div>
             <div class="modal-body " >
               <div class=" add_branch_admin create_branch_box">
-                  <form id=" form_container" action="https://target-coaching.onrender.com/superAdmin/addAdmin" method="post">
+                  <form id=" form_container" action="/superAdmin/addAdmin" method="post">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label id="branch-label" for="branch_id"></label>
@@ -212,7 +212,7 @@
     <script>
     
     var brachData = new Object()
-    const url ="https://target-coaching.onrender.com/login/studentData";
+    const url ="/login/studentData";
     fetch(url)
     .then(res => res.json())
     .then(data =>{  

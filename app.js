@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 8100;
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const bodyparser = require("body-parser");
 app.use(express.json());
@@ -19,10 +20,7 @@ app.get("/", (req, res) => {
 });
 
 // *************** MONGODB CONNECTION ***************
-// const mongourl =
-//   "mongodb+srv://sonalibadekar21:sonali123@cluster0.mbzxyso.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
-const mongourl =
-  "mongodb+srv://ranjeet25:admin@cluster0.3qqu0sa.mongodb.net/TargetCoaching?retryWrites=true&w=majority";
+const mongourl = process.env.DBURL;
 
 mongoose
   .connect(mongourl)
@@ -67,5 +65,5 @@ app.use("/staff", Staff);
 // ***************  APP LISTEN ***************
 
 app.listen(PORT, () => {
-  console.log("sucess! server started ON " + `${PORT}`);
+  console.log("sucess! server started ON " + `http://localhost:${PORT}`);
 });
