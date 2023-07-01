@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
       if (result == null) {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
       } else if (result.password === password) {
-        superAdminData = result;
+        // superAdminData = result;
         res.sendFile(path.join(__dirname, "../pages/superAdmin.html"));
       } else {
         res.sendFile(path.join(__dirname, "../pages/alert/wrong_info.html"));
