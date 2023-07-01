@@ -11,7 +11,7 @@
 }
 
 header {
-  height: 100px;
+  height: 80px;
 }
 
 header .logo a {
@@ -39,12 +39,12 @@ header .logo a {
   color: black;
   border-radius: 10px;
   padding: 8px 20px;
-  border: 2px solid coral;
+  border: 2px solid rgb(130, 80, 255);
   transition: 0.3s ease-in-out;
 }
 
 .register_btn:hover {
-  background: coral;
+  background: rgb(109, 80, 255);
   color: #fff;
 }
 
@@ -57,7 +57,11 @@ header .logo a {
 .hero_container {
   width: 100%;
   height: 90vh;
-}
+  
+  background-color: #e5e5f7;
+    opacity: 1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 6px), repeating-linear-gradient(#ccbbff55, #ccbbff);
+  }
 
 .hero_title {
   color: #8758ff;
@@ -71,86 +75,86 @@ header .logo a {
 
 .feature_container {
   height: 100%;
+  width: 100%
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
+.wrapper {
+  margin: 10vh;
+}
 .card {
-  border-radius: 33px;
+  border: none;
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
-  border: 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.07);
-  transition: all 0.15s ease;
-}
-
-.card:hover {
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1), 0 10px 8px rgba(0, 0, 0, 0.015);
-}
-
-.card-body .card-title {
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  font-size: 24px;
-  color: #121212;
-}
-
-.card-text {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.3px;
-  color: #4e4e4e;
-}
-
-.card .container {
-  width: 88%;
-  background: #f0eef8;
-  border-radius: 30px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container:hover > img {
-  transform: scale(1.2);
-}
-
-.container img {
-  padding: 75px;
-  margin-top: -40px;
-  margin-bottom: -40px;
-  transition: 0.4s ease;
-  cursor: pointer;
-}
-
-.btn {
-  background: #eeecf7;
-  border: 0;
-  color: #5535f0;
-  width: 98%;
-  font-weight: bold;
   border-radius: 20px;
-  height: 40px;
-  transition: all 0.2s ease;
+  min-height: 450px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
 }
-
-.btn:hover {
-  background: #441cff;
+@media (max-width: 768px) {
+  .card {
+    min-height: 350px;
+ }
 }
-
-.btn:focus {
-  background: #441cff;
-  outline: 0;
+@media (max-width: 420px) {
+  .card {
+    min-height: 300px;
+ }
 }
-
-#featuresSection {
-  display: flex;
-  width: 100%;
-  height: 70vh;
-  justify-content: center;
-  justify-content: space-between;
-  padding: 60px;
-  margin: 5vh 0 20vh 0;
+.card.card-has-bg {
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.card.card-has-bg:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.card.card-has-bg:hover {
+  transform: scale(0.98);
+  box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
+  background-size: 130%;
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card.card-has-bg:hover .card-img-overlay {
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  background: #7d54de;
+  background: linear-gradient(0deg, rgba(4, 69, 114, 0.5) 0%, rgb(74, 55, 146) 100%);
+}
+.card .card-footer {
+  background: none;
+  border-top: none;
+}
+.card .card-footer .media img {
+  border: solid 3px rgba(255, 255, 255, 0.3);
+}
+.card .card-meta {
+  color: #853aff;
+}
+.card .card-body {
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card:hover {
+  cursor: pointer;
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card:hover .card-body {
+  margin-top: 30px;
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.card .card-img-overlay {
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  background: #5a4a9e;
+  background: linear-gradient(0deg, rgba(35, 79, 109, 0.3785889355742297) 0%, rgb(50, 38, 68) 100%);
 }

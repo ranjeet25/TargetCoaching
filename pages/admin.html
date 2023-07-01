@@ -166,7 +166,7 @@
               class="side_btn btn btn-outline-light "
              data-bs-toggle="collapse" data-bs-target="#manage_staff"
             >
-              Manage Staffs
+            Manage Staffs  <i class="bi bi-caret-down-fill"></i>
             </button>
          <!-- *********** SUB MANAGE STAFFS ***********-->
           <div id="manage_staff" class="collapse"> 
@@ -244,22 +244,25 @@
           <!-- *********** 111111111  MAIN  SWITCHING CONTENT  CONTAINERS *********** -->
 
           <section class="staff_section content_section row">
-            <div style="background-color: rgb(188, 127, 245);" class="content_1 container">
+            <div style="background-color: #ab94ff;" class="content_1 container">
               <!-- ********* Contents ********* -->
 
               
 
               <!-- ********* 0001111 ********* -->
-              <div style="display: flex;" id="dashboard_heading-1"> <h4>Add Staffs</h4>
-                <form id="myform"  >
-                  <input style="display: none;" name="branch_id" id="admin_branch_id" type="text"/>
-                  <input value="Load data" style=" color: #fff; background-color: rgb(36, 36, 36); border: none; font-size: small; padding: 5px 10px; border-radius: 33px;margin-left: 5px;" type="submit" >
+              <div style="display: flex;"  id="dashboard_heading-1"> <h4 class="shadow-md">Add Staffs</h4>
+                <form id="myform">
+                  <input style="display: none;" name="branch_id" id="admin_branch_id" type="text" />
+                  <input value=" Load data"
+                    style=" color: #fff; background-color: rgb(36, 36, 36); border: none; font-size: small; padding: 5px 10px; border-radius: 33px;margin-left: 5px;"
+                    type="submit">
                 </form>
               </div>
                
               <div
                 id="content_container-1"
-                class="content_container rounded rounded-5"
+                class="content_container rounded rounded-5 p-0 m-0"
+                style="background-color: #ab94ff;"
               >
 
               <!-- Content SECTION -->
@@ -562,7 +565,7 @@
 
       function addStaff() {
         if ((dh1.style.display = "none") && (cc1.style.display = "none")) {
-          dh1.style.display = "inline";
+          dh1.style.display = "flex ";
           cc1.style.display = "flex";
 
           dh2.style.display = "none";

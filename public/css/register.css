@@ -6,7 +6,10 @@
   font-family: "DM Sans", sans-serif;
 }
 .main_container {
-  background: linear-gradient(to right, #e0e0e0, #ededed);
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(circle at center center, #f4eeff, #e5e5f7), repeating-radial-gradient(circle at center center, #f4eeff, #f4eeff, 4px, transparent 8px, transparent 4px);
+  background-blend-mode: multiply;
   display: flex;
   flex-direction: column;
   justify-content: center;
